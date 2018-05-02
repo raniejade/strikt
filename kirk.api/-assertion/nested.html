@@ -1,0 +1,27 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Assertion.nested - </title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">kirk.api</a>&nbsp;/&nbsp;<a href="index.html">Assertion</a>&nbsp;/&nbsp;<a href="./nested.html">nested</a><br/>
+<br/>
+<h1>nested</h1>
+<a name="kirk.api.Assertion$nested(kotlin.String, kotlin.Function1((kirk.api.NestedAssertionContext((kirk.api.Assertion.T)), kotlin.Unit)))"></a>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">nested</span><span class="symbol">(</span><span class="identifier" id="kirk.api.Assertion$nested(kotlin.String, kotlin.Function1((kirk.api.NestedAssertionContext((kirk.api.Assertion.T)), kotlin.Unit)))/description">description</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="kirk.api.Assertion$nested(kotlin.String, kotlin.Function1((kirk.api.NestedAssertionContext((kirk.api.Assertion.T)), kotlin.Unit)))/assertions">assertions</span><span class="symbol">:</span>&nbsp;<a href="../-nested-assertion-context/index.html"><span class="identifier">NestedAssertionContext</span></a><span class="symbol">&lt;</span><a href="index.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="index.html"><span class="identifier">Assertion</span></a><span class="symbol">&lt;</span><a href="index.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span></code>
+<p>Used by assertion implementations to evaluate a group of conditions that
+may individually pass or fail and result in the passing or failure of the
+overall assertion.</p>
+<h3>Parameters</h3>
+<p><a name="description"></a>
+<code>description</code> - a description for the overall assertion.</p>
+<p><a name="assertions"></a>
+<code>assertions</code> - the assertion implementation that should perform a group
+of assertions using <a href="../-nested-assertion-context/expect.html">NestedAssertionContext.expect</a> and finall result in a
+call to <a href="../-atomic-assertion-context/pass.html">NestedAssertionContext.pass</a> or
+<a href="../-atomic-assertion-context/fail.html">NestedAssertionContext.fail</a>.</p>
+<p><strong>Return</strong><br/>
+this assertion, in order to facilitate a fluent API.</p>
+</BODY>
+</HTML>

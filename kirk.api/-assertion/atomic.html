@@ -1,0 +1,24 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Assertion.atomic - </title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">kirk.api</a>&nbsp;/&nbsp;<a href="index.html">Assertion</a>&nbsp;/&nbsp;<a href="./atomic.html">atomic</a><br/>
+<br/>
+<h1>atomic</h1>
+<a name="kirk.api.Assertion$atomic(kotlin.String, kotlin.Function1((kirk.api.AtomicAssertionContext((kirk.api.Assertion.T)), kotlin.Unit)))"></a>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">atomic</span><span class="symbol">(</span><span class="identifier" id="kirk.api.Assertion$atomic(kotlin.String, kotlin.Function1((kirk.api.AtomicAssertionContext((kirk.api.Assertion.T)), kotlin.Unit)))/description">description</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="kirk.api.Assertion$atomic(kotlin.String, kotlin.Function1((kirk.api.AtomicAssertionContext((kirk.api.Assertion.T)), kotlin.Unit)))/assertion">assertion</span><span class="symbol">:</span>&nbsp;<a href="../-atomic-assertion-context/index.html"><span class="identifier">AtomicAssertionContext</span></a><span class="symbol">&lt;</span><a href="index.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="index.html"><span class="identifier">Assertion</span></a><span class="symbol">&lt;</span><a href="index.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span></code>
+<p>Used by assertion implementations to evaluate a single condition that may
+pass or fail.</p>
+<h3>Parameters</h3>
+<p><a name="description"></a>
+<code>description</code> - a description for the assertion.</p>
+<p><a name="assertion"></a>
+<code>assertion</code> - the assertion implementation that should result in a call
+to <a href="../-atomic-assertion-context/pass.html">AtomicAssertionContext.pass</a> or <a href="../-atomic-assertion-context/fail.html">AtomicAssertionContext.fail</a>.</p>
+<p><strong>Return</strong><br/>
+this assertion, in order to facilitate a fluent API.</p>
+</BODY>
+</HTML>

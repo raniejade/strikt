@@ -1,0 +1,225 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Assertion - kirk</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">kirk</a>&nbsp;/&nbsp;<a href="../index.html">kirk.api</a>&nbsp;/&nbsp;<a href="./index.html">Assertion</a><br/>
+<br/>
+<h1>Assertion</h1>
+<code><span class="keyword">interface </span><span class="identifier">Assertion</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code>
+<p>Holds a subject of type <a href="index.html#T">T</a> that you can then make assertions about.</p>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="atomic.html">atomic</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">atomic</span><span class="symbol">(</span><span class="identifier" id="kirk.api.Assertion$atomic(kotlin.String, kotlin.Function1((kirk.api.AtomicAssertionContext((kirk.api.Assertion.T)), kotlin.Unit)))/description">description</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="kirk.api.Assertion$atomic(kotlin.String, kotlin.Function1((kirk.api.AtomicAssertionContext((kirk.api.Assertion.T)), kotlin.Unit)))/assertion">assertion</span><span class="symbol">:</span>&nbsp;<a href="../-atomic-assertion-context/index.html"><span class="identifier">AtomicAssertionContext</span></a><span class="symbol">&lt;</span><a href="index.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">Assertion</span></a><span class="symbol">&lt;</span><a href="index.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span></code>
+<p>Used by assertion implementations to evaluate a single condition that may
+pass or fail.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="map.html">map</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">R</span><span class="symbol">&gt;</span> <span class="identifier">map</span><span class="symbol">(</span><span class="identifier" id="kirk.api.Assertion$map(kotlin.Function1((kirk.api.Assertion.T, kirk.api.Assertion.map.R)))/function">function</span><span class="symbol">:</span>&nbsp;<a href="index.html#T"><span class="identifier">T</span></a><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="map.html#R"><span class="identifier">R</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">Assertion</span></a><span class="symbol">&lt;</span><a href="map.html#R"><span class="identifier">R</span></a><span class="symbol">&gt;</span></code>
+<p>Maps the assertion subject to the result of <a href="map.html#kirk.api.Assertion$map(kotlin.Function1((kirk.api.Assertion.T, kirk.api.Assertion.map.R)))/function">function</a>.
+For example, if <a href="map.html#kirk.api.Assertion$map(kotlin.Function1((kirk.api.Assertion.T, kirk.api.Assertion.map.R)))/function">function</a> is a property reference on <a href="index.html#T">T</a></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="nested.html">nested</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">nested</span><span class="symbol">(</span><span class="identifier" id="kirk.api.Assertion$nested(kotlin.String, kotlin.Function1((kirk.api.NestedAssertionContext((kirk.api.Assertion.T)), kotlin.Unit)))/description">description</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="kirk.api.Assertion$nested(kotlin.String, kotlin.Function1((kirk.api.NestedAssertionContext((kirk.api.Assertion.T)), kotlin.Unit)))/assertions">assertions</span><span class="symbol">:</span>&nbsp;<a href="../-nested-assertion-context/index.html"><span class="identifier">NestedAssertionContext</span></a><span class="symbol">&lt;</span><a href="index.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">Assertion</span></a><span class="symbol">&lt;</span><a href="index.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span></code>
+<p>Used by assertion implementations to evaluate a group of conditions that
+may individually pass or fail and result in the passing or failure of the
+overall assertion.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Extension Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="../../kirk.assertions/all.html">all</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-iterable/index.html"><span class="identifier">Iterable</span></a><span class="symbol">&lt;</span><a href="../../kirk.assertions/all.html#E"><span class="identifier">E</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier">E</span><span class="symbol">&gt;</span> <a href="./index.html"><span class="identifier">Assertion</span></a><span class="symbol">&lt;</span><a href="../../kirk.assertions/all.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">all</span><span class="symbol">(</span><span class="identifier" id="kirk.assertions$all(kirk.api.Assertion((kirk.assertions.all.T)), kotlin.Function1((kirk.api.Assertion((kirk.assertions.all.E)), kotlin.Unit)))/predicate">predicate</span><span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">Assertion</span></a><span class="symbol">&lt;</span><a href="../../kirk.assertions/all.html#E"><span class="identifier">E</span></a><span class="symbol">&gt;</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">Assertion</span></a><span class="symbol">&lt;</span><a href="../../kirk.assertions/all.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span></code>
+<p>Asserts that all elements of the subject pass the assertions in <a href="../../kirk.assertions/all.html#kirk.assertions$all(kirk.api.Assertion((kirk.assertions.all.T)), kotlin.Function1((kirk.api.Assertion((kirk.assertions.all.E)), kotlin.Unit)))/predicate">predicate</a>.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="../../kirk.assertions/any.html">any</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-iterable/index.html"><span class="identifier">Iterable</span></a><span class="symbol">&lt;</span><a href="../../kirk.assertions/any.html#E"><span class="identifier">E</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier">E</span><span class="symbol">&gt;</span> <a href="./index.html"><span class="identifier">Assertion</span></a><span class="symbol">&lt;</span><a href="../../kirk.assertions/any.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">any</span><span class="symbol">(</span><span class="identifier" id="kirk.assertions$any(kirk.api.Assertion((kirk.assertions.any.T)), kotlin.Function1((kirk.api.Assertion((kirk.assertions.any.E)), kotlin.Unit)))/predicate">predicate</span><span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">Assertion</span></a><span class="symbol">&lt;</span><a href="../../kirk.assertions/any.html#E"><span class="identifier">E</span></a><span class="symbol">&gt;</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">Assertion</span></a><span class="symbol">&lt;</span><a href="../../kirk.assertions/any.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span></code>
+<p>Asserts that <em>at least one</em> element of the subject pass the assertions in
+<a href="../../kirk.assertions/any.html#kirk.assertions$any(kirk.api.Assertion((kirk.assertions.any.T)), kotlin.Function1((kirk.api.Assertion((kirk.assertions.any.E)), kotlin.Unit)))/predicate">predicate</a>.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="../../kirk.assertions/has-length.html">hasLength</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-char-sequence/index.html"><span class="identifier">CharSequence</span></a><span class="symbol">&gt;</span> <a href="./index.html"><span class="identifier">Assertion</span></a><span class="symbol">&lt;</span><a href="../../kirk.assertions/has-length.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">hasLength</span><span class="symbol">(</span><span class="identifier" id="kirk.assertions$hasLength(kirk.api.Assertion((kirk.assertions.hasLength.T)), kotlin.Int)/expected">expected</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">Assertion</span></a><span class="symbol">&lt;</span><a href="../../kirk.assertions/has-length.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span></code>
+<p>Asserts that the subject has a <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-char-sequence/length.html">CharSequence.length</a> of exactly <a href="../../kirk.assertions/has-length.html#kirk.assertions$hasLength(kirk.api.Assertion((kirk.assertions.hasLength.T)), kotlin.Int)/expected">expected</a>.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="../../kirk.assertions/has-size.html">hasSize</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-collection/index.html"><span class="identifier">Collection</span></a><span class="symbol">&lt;</span><a href="../../kirk.assertions/has-size.html#E"><span class="identifier">E</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier">E</span><span class="symbol">&gt;</span> <a href="./index.html"><span class="identifier">Assertion</span></a><span class="symbol">&lt;</span><a href="../../kirk.assertions/has-size.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">hasSize</span><span class="symbol">(</span><span class="identifier" id="kirk.assertions$hasSize(kirk.api.Assertion((kirk.assertions.hasSize.T)), kotlin.Int)/expected">expected</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">Assertion</span></a><span class="symbol">&lt;</span><a href="../../kirk.assertions/has-size.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span></code>
+<p>Asserts that the subject has a <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-collection/size.html">Collection.size</a> of exactly <a href="../../kirk.assertions/has-size.html#kirk.assertions$hasSize(kirk.api.Assertion((kirk.assertions.hasSize.T)), kotlin.Int)/expected">expected</a>.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="../../kirk.assertions/is-a.html">isA</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <a href="./index.html"><span class="identifier">Assertion</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">isA</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">Assertion</span></a><span class="symbol">&lt;</span><a href="../../kirk.assertions/is-a.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span></code>
+<p>Asserts that the subject is an instance of <a href="../../kirk.assertions/is-a.html#T">T</a>.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="../../kirk.assertions/is-equal-to.html">isEqualTo</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <a href="./index.html"><span class="identifier">Assertion</span></a><span class="symbol">&lt;</span><a href="../../kirk.assertions/is-equal-to.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">isEqualTo</span><span class="symbol">(</span><span class="identifier" id="kirk.assertions$isEqualTo(kirk.api.Assertion((kirk.assertions.isEqualTo.T)), kotlin.Any)/expected">expected</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">Assertion</span></a><span class="symbol">&lt;</span><a href="../../kirk.assertions/is-equal-to.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span></code>
+<p>Asserts that the subject is equal to <a href="../../kirk.assertions/is-equal-to.html#kirk.assertions$isEqualTo(kirk.api.Assertion((kirk.assertions.isEqualTo.T)), kotlin.Any)/expected">expected</a> according to the standard
+Kotlin <code>==</code> operator.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="../../kirk.assertions/is-greater-than.html">isGreaterThan</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-comparable/index.html"><span class="identifier">Comparable</span></a><span class="symbol">&lt;</span><a href="../../kirk.assertions/is-greater-than.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span><span class="symbol">&gt;</span> <a href="./index.html"><span class="identifier">Assertion</span></a><span class="symbol">&lt;</span><a href="../../kirk.assertions/is-greater-than.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">isGreaterThan</span><span class="symbol">(</span><span class="identifier" id="kirk.assertions$isGreaterThan(kirk.api.Assertion((kirk.assertions.isGreaterThan.T)), kirk.assertions.isGreaterThan.T)/expected">expected</span><span class="symbol">:</span>&nbsp;<a href="../../kirk.assertions/is-greater-than.html#T"><span class="identifier">T</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">Assertion</span></a><span class="symbol">&lt;</span><a href="../../kirk.assertions/is-greater-than.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span></code>
+<p>Asserts that the subject compares greater than <a href="../../kirk.assertions/is-greater-than.html#kirk.assertions$isGreaterThan(kirk.api.Assertion((kirk.assertions.isGreaterThan.T)), kirk.assertions.isGreaterThan.T)/expected">expected</a> according to
+Kotlin's standard <code>&gt;</code> operator.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="../../kirk.assertions/is-greater-than-or-equal-to.html">isGreaterThanOrEqualTo</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-comparable/index.html"><span class="identifier">Comparable</span></a><span class="symbol">&lt;</span><a href="../../kirk.assertions/is-greater-than-or-equal-to.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span><span class="symbol">&gt;</span> <a href="./index.html"><span class="identifier">Assertion</span></a><span class="symbol">&lt;</span><a href="../../kirk.assertions/is-greater-than-or-equal-to.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">isGreaterThanOrEqualTo</span><span class="symbol">(</span><span class="identifier" id="kirk.assertions$isGreaterThanOrEqualTo(kirk.api.Assertion((kirk.assertions.isGreaterThanOrEqualTo.T)), kirk.assertions.isGreaterThanOrEqualTo.T)/expected">expected</span><span class="symbol">:</span>&nbsp;<a href="../../kirk.assertions/is-greater-than-or-equal-to.html#T"><span class="identifier">T</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">Assertion</span></a><span class="symbol">&lt;</span><a href="../../kirk.assertions/is-greater-than-or-equal-to.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span></code>
+<p>Asserts that the subject compares greater than or equal to <a href="../../kirk.assertions/is-greater-than-or-equal-to.html#kirk.assertions$isGreaterThanOrEqualTo(kirk.api.Assertion((kirk.assertions.isGreaterThanOrEqualTo.T)), kirk.assertions.isGreaterThanOrEqualTo.T)/expected">expected</a>
+according to Kotlin's standard <code>&gt;=</code> operator.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="../../kirk.assertions/is-less-than.html">isLessThan</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-comparable/index.html"><span class="identifier">Comparable</span></a><span class="symbol">&lt;</span><a href="../../kirk.assertions/is-less-than.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span><span class="symbol">&gt;</span> <a href="./index.html"><span class="identifier">Assertion</span></a><span class="symbol">&lt;</span><a href="../../kirk.assertions/is-less-than.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">isLessThan</span><span class="symbol">(</span><span class="identifier" id="kirk.assertions$isLessThan(kirk.api.Assertion((kirk.assertions.isLessThan.T)), kirk.assertions.isLessThan.T)/expected">expected</span><span class="symbol">:</span>&nbsp;<a href="../../kirk.assertions/is-less-than.html#T"><span class="identifier">T</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">Assertion</span></a><span class="symbol">&lt;</span><a href="../../kirk.assertions/is-less-than.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span></code>
+<p>Asserts that the subject compares less than <a href="../../kirk.assertions/is-less-than.html#kirk.assertions$isLessThan(kirk.api.Assertion((kirk.assertions.isLessThan.T)), kirk.assertions.isLessThan.T)/expected">expected</a> according to Kotlin's
+standard <code>&lt;</code> operator.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="../../kirk.assertions/is-less-than-or-equal-to.html">isLessThanOrEqualTo</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-comparable/index.html"><span class="identifier">Comparable</span></a><span class="symbol">&lt;</span><a href="../../kirk.assertions/is-less-than-or-equal-to.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span><span class="symbol">&gt;</span> <a href="./index.html"><span class="identifier">Assertion</span></a><span class="symbol">&lt;</span><a href="../../kirk.assertions/is-less-than-or-equal-to.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">isLessThanOrEqualTo</span><span class="symbol">(</span><span class="identifier" id="kirk.assertions$isLessThanOrEqualTo(kirk.api.Assertion((kirk.assertions.isLessThanOrEqualTo.T)), kirk.assertions.isLessThanOrEqualTo.T)/expected">expected</span><span class="symbol">:</span>&nbsp;<a href="../../kirk.assertions/is-less-than-or-equal-to.html#T"><span class="identifier">T</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">Assertion</span></a><span class="symbol">&lt;</span><a href="../../kirk.assertions/is-less-than-or-equal-to.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span></code>
+<p>Asserts that the subject compares less than or equal to <a href="../../kirk.assertions/is-less-than-or-equal-to.html#kirk.assertions$isLessThanOrEqualTo(kirk.api.Assertion((kirk.assertions.isLessThanOrEqualTo.T)), kirk.assertions.isLessThanOrEqualTo.T)/expected">expected</a> according
+to Kotlin's standard <code>&lt;=</code> operator.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="../../kirk.assertions/is-lower-case.html">isLowerCase</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-char-sequence/index.html"><span class="identifier">CharSequence</span></a><span class="symbol">&gt;</span> <a href="./index.html"><span class="identifier">Assertion</span></a><span class="symbol">&lt;</span><a href="../../kirk.assertions/is-lower-case.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">isLowerCase</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">Assertion</span></a><span class="symbol">&lt;</span><a href="../../kirk.assertions/is-lower-case.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span></code>
+<p>Asserts that the subject is composed of all lower-case characters.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="../../kirk.assertions/is-not-equal-to.html">isNotEqualTo</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <a href="./index.html"><span class="identifier">Assertion</span></a><span class="symbol">&lt;</span><a href="../../kirk.assertions/is-not-equal-to.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">isNotEqualTo</span><span class="symbol">(</span><span class="identifier" id="kirk.assertions$isNotEqualTo(kirk.api.Assertion((kirk.assertions.isNotEqualTo.T)), kotlin.Any)/expected">expected</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">Assertion</span></a><span class="symbol">&lt;</span><a href="../../kirk.assertions/is-not-equal-to.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span></code>
+<p>Asserts that the subject is not equal to <a href="../../kirk.assertions/is-not-equal-to.html#kirk.assertions$isNotEqualTo(kirk.api.Assertion((kirk.assertions.isNotEqualTo.T)), kotlin.Any)/expected">expected</a> according to the standard
+Kotlin <code>==</code> operator.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="../../kirk.assertions/is-not-null.html">isNotNull</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <a href="./index.html"><span class="identifier">Assertion</span></a><span class="symbol">&lt;</span><a href="../../kirk.assertions/is-not-null.html#T"><span class="identifier">T</span></a><span class="symbol">?</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">isNotNull</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">Assertion</span></a><span class="symbol">&lt;</span><a href="../../kirk.assertions/is-not-null.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span></code>
+<p>Asserts that the subject is not <code>null</code>.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="../../kirk.assertions/is-null.html">isNull</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <a href="./index.html"><span class="identifier">Assertion</span></a><span class="symbol">&lt;</span><a href="../../kirk.assertions/is-null.html#T"><span class="identifier">T</span></a><span class="symbol">?</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">isNull</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">Assertion</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-nothing/index.html"><span class="identifier">Nothing</span></a><span class="symbol">&gt;</span></code>
+<p>Asserts that the subject is <code>null</code>.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="../../kirk.assertions/is-upper-case.html">isUpperCase</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-char-sequence/index.html"><span class="identifier">CharSequence</span></a><span class="symbol">&gt;</span> <a href="./index.html"><span class="identifier">Assertion</span></a><span class="symbol">&lt;</span><a href="../../kirk.assertions/is-upper-case.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">isUpperCase</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">Assertion</span></a><span class="symbol">&lt;</span><a href="../../kirk.assertions/is-upper-case.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span></code>
+<p>Asserts that the subject is composed of all upper-case characters.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="../../kirk.assertions/matches.html">matches</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-char-sequence/index.html"><span class="identifier">CharSequence</span></a><span class="symbol">&gt;</span> <a href="./index.html"><span class="identifier">Assertion</span></a><span class="symbol">&lt;</span><a href="../../kirk.assertions/matches.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">matches</span><span class="symbol">(</span><span class="identifier" id="kirk.assertions$matches(kirk.api.Assertion((kirk.assertions.matches.T)), kotlin.text.Regex)/expected">expected</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/-regex/index.html"><span class="identifier">Regex</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">Assertion</span></a><span class="symbol">&lt;</span><a href="../../kirk.assertions/matches.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span></code>
+<p>Asserts that the subject is a full match for the <a href="../../kirk.assertions/matches.html#kirk.assertions$matches(kirk.api.Assertion((kirk.assertions.matches.T)), kotlin.text.Regex)/expected">expected</a> regular
+expression.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="../../kirk.assertions/none.html">none</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-iterable/index.html"><span class="identifier">Iterable</span></a><span class="symbol">&lt;</span><a href="../../kirk.assertions/none.html#E"><span class="identifier">E</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier">E</span><span class="symbol">&gt;</span> <a href="./index.html"><span class="identifier">Assertion</span></a><span class="symbol">&lt;</span><a href="../../kirk.assertions/none.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">none</span><span class="symbol">(</span><span class="identifier" id="kirk.assertions$none(kirk.api.Assertion((kirk.assertions.none.T)), kotlin.Function1((kirk.api.Assertion((kirk.assertions.none.E)), kotlin.Unit)))/predicate">predicate</span><span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">Assertion</span></a><span class="symbol">&lt;</span><a href="../../kirk.assertions/none.html#E"><span class="identifier">E</span></a><span class="symbol">&gt;</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">Assertion</span></a><span class="symbol">&lt;</span><a href="../../kirk.assertions/none.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span></code>
+<p>Asserts that <em>no</em> elements of the subject pass the assertions in <a href="../../kirk.assertions/none.html#kirk.assertions$none(kirk.api.Assertion((kirk.assertions.none.T)), kotlin.Function1((kirk.api.Assertion((kirk.assertions.none.E)), kotlin.Unit)))/predicate">predicate</a>.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="../../kirk.assertions/starts-with.html">startsWith</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-char-sequence/index.html"><span class="identifier">CharSequence</span></a><span class="symbol">&gt;</span> <a href="./index.html"><span class="identifier">Assertion</span></a><span class="symbol">&lt;</span><a href="../../kirk.assertions/starts-with.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">startsWith</span><span class="symbol">(</span><span class="identifier" id="kirk.assertions$startsWith(kirk.api.Assertion((kirk.assertions.startsWith.T)), kotlin.Char)/expected">expected</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-char/index.html"><span class="identifier">Char</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">Assertion</span></a><span class="symbol">&lt;</span><a href="../../kirk.assertions/starts-with.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span></code>
+<p>Asserts that the subject starts with the <a href="../../kirk.assertions/starts-with.html#kirk.assertions$startsWith(kirk.api.Assertion((kirk.assertions.startsWith.T)), kotlin.Char)/expected">expected</a> character.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>
