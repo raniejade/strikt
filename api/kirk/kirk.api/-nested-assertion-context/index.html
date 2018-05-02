@@ -1,0 +1,111 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>NestedAssertionContext - kirk</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">kirk</a>&nbsp;/&nbsp;<a href="../index.html">kirk.api</a>&nbsp;/&nbsp;<a href="./index.html">NestedAssertionContext</a><br/>
+<br/>
+<h1>NestedAssertionContext</h1>
+<code><span class="keyword">interface </span><span class="identifier">NestedAssertionContext</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-atomic-assertion-context/index.html"><span class="identifier">AtomicAssertionContext</span></a><span class="symbol">&lt;</span><a href="index.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span></code>
+<p>Allows grouping of assertions under a single main assertion and reporting of
+success or failure.
+This class is used for more complex assertions such as on all elements of a
+collection or multiple fields of an object.</p>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="all-failed.html">allFailed</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">allFailed</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code>
+<p>Returns <code>true</code> if <em>all</em> assertions in this group failed, <code>false</code> otherwise.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="all-succeeded.html">allSucceeded</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">allSucceeded</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code>
+<p>Returns <code>true</code> if <em>all</em> assertions in this group passed, <code>false</code> otherwise.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="any-failed.html">anyFailed</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">anyFailed</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code>
+<p>Returns <code>true</code> if any assertions in this group failed, <code>false</code> otherwise.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="any-succeeded.html">anySucceeded</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">anySucceeded</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code>
+<p>Returns <code>true</code> if any assertions in this group passed, <code>false</code> otherwise.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Inherited Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="../-atomic-assertion-context/subject.html">subject</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">subject</span><span class="symbol">: </span><a href="../-atomic-assertion-context/index.html#T"><span class="identifier">T</span></a></code>
+<p>The assertion subject.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="expect.html">expect</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span> <span class="identifier">expect</span><span class="symbol">(</span><span class="identifier" id="kirk.api.NestedAssertionContext$expect(kirk.api.NestedAssertionContext.expect.E)/subject">subject</span><span class="symbol">:</span>&nbsp;<a href="expect.html#E"><span class="identifier">E</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../-assertion/index.html"><span class="identifier">Assertion</span></a><span class="symbol">&lt;</span><a href="expect.html#E"><span class="identifier">E</span></a><span class="symbol">&gt;</span></code>
+<p>Start a chain of assertions under the current group.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span> <span class="identifier">expect</span><span class="symbol">(</span><span class="identifier" id="kirk.api.NestedAssertionContext$expect(kirk.api.NestedAssertionContext.expect.E, kotlin.Function1((kirk.api.Assertion((kirk.api.NestedAssertionContext.expect.E)), kotlin.Unit)))/subject">subject</span><span class="symbol">:</span>&nbsp;<a href="expect.html#E"><span class="identifier">E</span></a><span class="symbol">, </span><span class="identifier" id="kirk.api.NestedAssertionContext$expect(kirk.api.NestedAssertionContext.expect.E, kotlin.Function1((kirk.api.Assertion((kirk.api.NestedAssertionContext.expect.E)), kotlin.Unit)))/block">block</span><span class="symbol">:</span>&nbsp;<a href="../-assertion/index.html"><span class="identifier">Assertion</span></a><span class="symbol">&lt;</span><a href="expect.html#E"><span class="identifier">E</span></a><span class="symbol">&gt;</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../-assertion/index.html"><span class="identifier">Assertion</span></a><span class="symbol">&lt;</span><a href="expect.html#E"><span class="identifier">E</span></a><span class="symbol">&gt;</span></code>
+<p>Evaluate a block of assertions under the current group.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Inherited Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="../-atomic-assertion-context/fail.html">fail</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">fail</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Report that the assertion failed.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="../-atomic-assertion-context/pass.html">pass</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">pass</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Report that the assertion succeeded.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>
