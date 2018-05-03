@@ -20,9 +20,9 @@ This class is the receiver of the lambda passed to [Assertion.nested](../-assert
 | Name | Summary |
 |---|---|
 | [allFailed](all-failed.md) | `abstract val allFailed: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)<br>Returns `true` if *all* assertions in this group failed, `false` otherwise. |
-| [allSucceeded](all-succeeded.md) | `abstract val allSucceeded: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)<br>Returns `true` if *all* assertions in this group passed, `false` otherwise. |
+| [allPassed](all-passed.md) | `abstract val allPassed: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)<br>Returns `true` if *all* assertions in this group passed, `false` otherwise. |
 | [anyFailed](any-failed.md) | `abstract val anyFailed: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)<br>Returns `true` if any assertions in this group failed, `false` otherwise. |
-| [anySucceeded](any-succeeded.md) | `abstract val anySucceeded: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)<br>Returns `true` if any assertions in this group passed, `false` otherwise. |
+| [anyPassed](any-passed.md) | `abstract val anyPassed: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)<br>Returns `true` if any assertions in this group passed, `false` otherwise. |
 
 ### Inherited Properties
 
