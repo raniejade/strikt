@@ -9,6 +9,12 @@ success or failure.
 This class is used for more complex assertions such as on all elements of a
 collection or multiple fields of an object.
 
+This class is the receiver of the lambda passed to [Assertion.nested](../-assertion/nested.md).
+
+**See Also**
+
+[Assertion.nested](../-assertion/nested.md)
+
 ### Properties
 
 | Name | Summary |

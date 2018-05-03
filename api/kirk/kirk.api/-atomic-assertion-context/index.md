@@ -6,6 +6,12 @@
 
 Allows reporting of success or failure by assertion implementations.
 
+This class is the receiver of the lambda passed to [Assertion.atomic](../-assertion/atomic.md).
+
+**See Also**
+
+[Assertion.atomic](../-assertion/atomic.md)
+
 ### Properties
 
 | Name | Summary |
