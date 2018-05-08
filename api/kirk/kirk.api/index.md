@@ -6,9 +6,12 @@
 
 | Name | Summary |
 |---|---|
-| [Assertion](-assertion/index.md) | `interface Assertion<T>`<br>Holds a subject of type [T](-assertion/index.md#T) that you can then make assertions about. |
-| [AtomicAssertionContext](-atomic-assertion-context/index.md) | `interface AtomicAssertionContext<T>`<br>Allows reporting of success or failure by assertion implementations. |
-| [NestedAssertionContext](-nested-assertion-context/index.md) | `interface NestedAssertionContext<T> : `[`AtomicAssertionContext`](-atomic-assertion-context/index.md)`<`[`T`](-nested-assertion-context/index.md#T)`>`<br>Allows grouping of assertions under a single main assertion and reporting of success or failure. This class is used for more complex assertions such as on all elements of a collection or multiple fields of an object. |
+| [Assertion](-assertion/index.md) | `class Assertion<T>`<br>Holds a subject of type [T](-assertion/index.md#T) that you can then make assertions about. |
+| [AssertionContext](-assertion-context/index.md) | `class AssertionContext<T>`<br>Allows reporting of success or failure by assertion implementations. |
+| [ComposedAssertionResults](-composed-assertion-results/index.md) | `class ComposedAssertionResults`<br>The results of assertions made inside the block passed to [AssertionContext.compose](-assertion-context/compose.md). |
+| [ComposedAssertions](-composed-assertions/index.md) | `class ComposedAssertions`<br>Allows assertions to be composed, or nested, using [AssertionContext.compose](-assertion-context/compose.md). |
+| [Result](-result/index.md) | `data class Result`<br>Represents the result of an assertion or a group of assertions. |
+| [Status](-status/index.md) | `enum class Status`<br>The basic state of an assertion result. |
 
 ### Functions
 
