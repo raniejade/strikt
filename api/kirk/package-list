@@ -1,5 +1,0 @@
-$dokka.format:gfm
-$dokka.linkExtension:md
-
-kirk.api
-kirk.assertions

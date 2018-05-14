@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="An assertion library for Kotlin">
+  <meta name="author" content="Rob Fletcher">
+  <link rel="shortcut icon" href="./img/favicon.ico">
+  <title>Home - Strikt</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="./css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="./css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="./css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Home";
+    var mkdocs_page_input_path = "index.md";
+    var mkdocs_page_url = "/";
+  </script>
+  
+  <script src="./js/jquery-2.1.1.min.js"></script>
+  <script src="./js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="./js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="." class="icon icon-home"> Strikt</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href=".">Home</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#installation">Installation</a></li>
+    
+
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="user-guide/using-strikt/">Using Strikt</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="user-guide/custom-assertions/">Custom Assertions</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="about/">About</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href=".">Strikt</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Home</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/robfletcher/strikt/edit/master/docs/index.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <p><img alt="Strikt" src="./img/logo.png" /></p>
+<p><a href="https://circleci.com/gh/robfletcher/strikt/tree/master"><img alt="CircleCI" src="https://circleci.com/gh/robfletcher/strikt/tree/master.svg?style=svg" /></a>
+<a href="https://bintray.com/robfletcher/maven/strikt-core/_latestVersion"><img alt="Download" src="https://api.bintray.com/packages/robfletcher/maven/strikt-core/images/download.svg" /> </a></p>
+<p>Strikt is an assertion library for Kotlin intended for use with a test runner such as <a href="https://junit.org/junit5/">JUnit</a> or <a href="http://spekframework.org/">Spek</a>.
+It's very much inspired by <a href="https://joel-costigliola.github.io/assertj/">AssertJ</a>, <a href="https://robstoll.github.io/atrium/">Atrium</a> and <a href="https://github.com/npryce/hamkrest">Hamkrest</a>.
+However, none of those provided exactly what I wanted so I decided to create my own assertions library.</p>
+<p>The design goals I had in mind were:</p>
+<ul>
+<li>An assertion API that takes advantage of Kotlin's strong type system.</li>
+<li>Easy "soft assertions" out of the box.</li>
+<li>A simple API for composing custom assertions.</li>
+<li>Legible syntax that an IDE can help with.</li>
+<li>Use Kotlin's nice language features without getting overly-clever (torturing everything into an infix function syntax, or trying to recreate <a href="http://spockframework.org/">Spock</a>'s assertion syntax in a language that can't really do it, for example).</li>
+<li>A rich selection of assertions that apply to common types without a tangled hierarchy of classes and self-referential generic types, (it turns out Kotlin's extension functions make this pretty easy to accomplish).</li>
+<li>Simple setup -- one dependency, one (okay, two) imports and you're up and running.</li>
+</ul>
+<h2 id="installation">Installation</h2>
+<p>Strikt is available from JCenter.
+Add the following to your <code>build.gradle</code>.</p>
+<pre><code class="groovy">repositories { 
+  jcenter() 
+}
+
+dependencies {
+  testCompile &quot;io.github.robfletcher.strikt:strikt-core:0.3.0&quot;
+}
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="user-guide/using-strikt/" class="btn btn-neutral float-right" title="Using Strikt">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/robfletcher/strikt/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+      
+        <span style="margin-left: 15px"><a href="user-guide/using-strikt/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '.';</script>
+    <script src="./js/theme.js"></script>
+      <script src="./search/require.js"></script>
+      <script src="./search/search.js"></script>
+
+</body>
+</html>
+
+<!--
+MkDocs version : 0.17.3
+Build Date UTC : 2018-05-14 23:36:36
+-->

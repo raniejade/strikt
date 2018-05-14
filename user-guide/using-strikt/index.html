@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="Rob Fletcher">
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Using Strikt - Strikt</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Using Strikt";
+    var mkdocs_page_input_path = "user-guide/using-strikt.md";
+    var mkdocs_page_url = "/user-guide/using-strikt/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Strikt</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">Using Strikt</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#using-strikt">Using Strikt</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#assertion-styles">Assertion styles</a></li>
+        
+            <li><a class="toctree-l3" href="#flow-typed-assertions">Flow typed assertions</a></li>
+        
+            <li><a class="toctree-l3" href="#assertions-on-elements-of-a-collection">Assertions on elements of a collection</a></li>
+        
+            <li><a class="toctree-l3" href="#asserting-exceptions-are-thrown">Asserting exceptions are thrown</a></li>
+        
+            <li><a class="toctree-l3" href="#mapping-assertions-using-lambdas">Mapping assertions using lambdas</a></li>
+        
+        </ul>
+    
+
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../custom-assertions/">Custom Assertions</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../about/">About</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Strikt</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Using Strikt</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/robfletcher/strikt/edit/master/docs/user-guide/using-strikt.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="using-strikt">Using Strikt</h1>
+<p>Strikt does not depend on any particular test runner.
+It can be used with JUnit, Spek or any other runner that supports tests written in Kotlin.</p>
+<h2 id="assertion-styles">Assertion styles</h2>
+<p>Two different styles of assertion -- chained and block -- are supported for different use-cases.
+You can mix and match both in the same test and even nest chained assertions inside block assertions.</p>
+<h3 id="chained-assertions">Chained assertions</h3>
+<p>Chained assertions use a fluent API.
+They fail fast.
+That is, the first assertion that fails breaks the chain and further assertions are not evaluated.</p>
+<p>Each assertion in the chain returns an <code>Assertion</code> object that supports further assertions.</p>
+<pre><code class="kotlin">val subject = &quot;covfefe&quot;
+expect(subject)
+  .isA&lt;String&gt;()
+  .hasLength(1)
+  .isUpperCase()
+</code></pre>
+
+<p>Produces the output: </p>
+<pre><code>✔ &quot;covfefe&quot; is a java.lang.String
+✘ &quot;covfefe&quot; has length 1
+</code></pre>
+
+<p>Notice that the <code>isUpperCase()</code> assertion is not applied as the earlier <code>hasLength(1)</code> assertion failed.</p>
+<h3 id="block-assertions">Block assertions</h3>
+<p>Block assertions are declared in a block whose receiver is an assertion on a target object.
+Block assertions do <em>not</em> fail fast.
+That is, all assertions in the block are evaluated and the result of the "compound" assertion will include results for all the assertions made in the block.</p>
+<pre><code class="kotlin">val subject = &quot;covfefe&quot;
+expect(subject) {
+  isA&lt;String&gt;()
+  hasLength(1)
+  isUpperCase()
+}
+</code></pre>
+
+<p>Produces the output:</p>
+<pre><code>✔ &quot;covfefe&quot; is a java.lang.String
+✘ &quot;covfefe&quot; has length 1
+✘ &quot;covfefe&quot; is upper case
+</code></pre>
+
+<p>All assertions are applied and since two fail there are two errors logged.</p>
+<h3 id="chained-assertions-inside-block-assertions">Chained assertions inside block assertions</h3>
+<p>Chained assertions inside a block <em>will</em> still fail fast but will not prevent other assertions in the block from being evaluated.</p>
+<pre><code class="kotlin">val subject = 1L
+expect(subject) {
+  lessThan(1).isA&lt;Int&gt;()
+  greaterThan(1)
+}
+</code></pre>
+
+<p>Produces the output:</p>
+<pre><code>✘ 1 is less than 1
+✘ 1 is greater than 1
+</code></pre>
+
+<p>Note the <code>isA&lt;Int&gt;</code> assertion (that would have failed) was not evaluated since it was chained after <code>lessThan(1)</code> which failed.
+The <code>greaterThan(1)</code> assertion <em>was</em> evaluated since it was not part of the same chain.</p>
+<h2 id="flow-typed-assertions">Flow typed assertions</h2>
+<p>Chained assertions return an <code>Assertion&lt;T&gt;</code> object with a generic type representing the (declared) type of the assertion subject.
+Some assertions will return a <em>different</em> type to the one they were called on.
+For example, if the subject of an assertion is a nullable type (in other words it's an <code>Assertion&lt;T?&gt;</code>) the assertion methods <code>isNull()</code> and <code>isNotNull()</code> are available.
+The return type of <code>isNotNull()</code> is <code>Assertion&lt;T&gt;</code> because we now <em>know</em> the subject is not null.
+You will find IDE code-completion will no longer offer the <code>isNull()</code> and <code>isNotNull()</code> assertion methods.</p>
+<p>Another example comes when testing values with broad types and making assertions about their specific runtime type.
+For example:</p>
+<pre><code class="kotlin">val subject: Map&lt;String, Any&gt; = mapOf(&quot;count&quot; to 1, &quot;name&quot; to &quot;Rob&quot;)
+expect(subject.get(&quot;count&quot;)).isA&lt;Number&gt;().isGreaterThan(0)
+expect(subject.get(&quot;name&quot;)).isA&lt;String&gt;().hasLength(3)
+</code></pre>
+
+<p>The return type of the subject map's <code>get()</code> method is <code>Any</code> but using the "down-cast" assertion <code>isA&lt;T&gt;()</code> we can both assert the type of the value and -- because the compiler now knows it is dealing with an <code>Assertion&lt;String&gt;</code> or an <code>Assertion&lt;Number&gt;</code> -- we can use more specialized assertion methods that are only available for those subject types.</p>
+<p>Without the <code>isA&lt;T&gt;()</code> assertion the code would not compile:</p>
+<pre><code class="kotlin">val subject: Map&lt;String, Any&gt; = mapOf(&quot;count&quot; to 1, &quot;name&quot; to &quot;Rob&quot;)
+expect(subject.get(&quot;count&quot;)).isGreaterThan(0) // isGreaterThan does not exist on Assertion&lt;Any&gt;
+expect(subject.get(&quot;name&quot;)).hasLength(3) // hasLength does not exist on Assertion&lt;Any&gt;
+</code></pre>
+
+<p>This mechanism means that IDE code-completion is optimally helpful as only assertion methods that are appropriate to the subject type will be suggested. </p>
+<h2 id="assertions-on-elements-of-a-collection">Assertions on elements of a collection</h2>
+<p>Some assertions on collections include sub-assertions applied to the elements of the collection.
+For example, we can assert that <em>all</em> elements conform to a repeated assertion.</p>
+<pre><code class="kotlin">val subject = setOf(&quot;catflap&quot;, &quot;rubberplant&quot;, &quot;marzipan&quot;)
+expect(subject).all {
+  isLowerCase()
+  startsWith('c')
+}
+</code></pre>
+
+<p>Produces the output:</p>
+<pre><code>✘ [catflap, rubberplant, marzipan] all elements match predicate: 
+  ✔ &quot;catflap&quot; starts with 'c'
+  ✔ &quot;catflap&quot; is lower case
+  ✘ &quot;rubberplant&quot; starts with 'c'
+  ✔ &quot;rubberplant&quot; is lower case
+  ✘ &quot;marzipan&quot; starts with 'c'
+  ✔ &quot;marzipan&quot; is lower case
+</code></pre>
+
+<p>The results are broken down by individual elements in the collection so it's easy to see which failed.</p>
+<h2 id="asserting-exceptions-are-thrown">Asserting exceptions are thrown</h2>
+<p>To assert that some code throws an exception you can use the <code>throws&lt;E&gt;</code> function.
+For example:</p>
+<pre><code class="kotlin">throws&lt;TooMuchFlaxException&gt; {
+  service.computeMeaning()
+}
+</code></pre>
+
+<p>The <code>throws&lt;E&gt;</code> function returns an <code>Assertion&lt;E&gt;</code> so you can chain assertions about the exception after it.</p>
+<h2 id="mapping-assertions-using-lambdas">Mapping assertions using lambdas</h2>
+<p>In order to map the assertion chain to a property or method result of the current subject you can use the <code>map</code> method.
+The method takes a lambda whose receiver is the current subject and returns an <code>Assertion&lt;R&gt;</code> where <code>R</code> is whatever the lambda returns.</p>
+<p>This is sometimes useful for making assertions about the properties of an object or the values returned by methods.</p>
+<pre><code class="kotlin">val subject = Person(name = &quot;David&quot;, birthDate = LocalDate.of(1947, 1, 8))
+expect(subject) {
+  map { name }.isEqualTo(&quot;David&quot;)
+  map { birthDate }.map { year }.isEqualTo(1947)
+}
+</code></pre>
+
+<h3 id="mapping-with-property-or-getter-references">Mapping with property or getter references</h3>
+<p>If you use a Kotlin property or Java getter reference as the lambda passed to <code>map</code>, Strikt will automatically derive the property name and use it as the subject description on the returned assertion. 
+This is very useful for generating good quality assertion output with minimal effort.</p>
+<p>For example, if the previous example fails it will format the error message like this:</p>
+<pre><code>▼ Person[name: Ziggy, birthDate: 1972-06-16] 
+  ✘ Ziggy is equal to David
+  ✘ 1972 is equal to 1947
+</code></pre>
+
+<p>However, using property references, the output is more useful.</p>
+<pre><code class="kotlin">val subject = Person(name = &quot;David&quot;, birthDate = LocalDate.of(1947, 1, 8))
+expect(subject) {
+  map(Person::name).isEqualTo(&quot;David&quot;)
+  map(Person::birthDate).map(LocalDate::getYear).isEqualTo(1947)
+}
+</code></pre>
+
+<pre><code>▼ Person[name: Ziggy, birthDate: 1972-06-16] 
+  ✘ .name Ziggy is equal to David
+  ✘ .birthDate.year 1972 is equal to 1947
+</code></pre>
+
+<h3 id="mapping-with-extension-properties">Mapping with extension properties</h3>
+<p>Perhaps the most useful application of <code>map</code> is in defining extension properties that map an assertion on a type to an assertion on one of the properties (or method return values) of that type.</p>
+<p>A simple example is the standard extension property Strikt supplies for <code>Assertion&lt;Collection&lt;*&gt;&gt;</code> that maps to an assertion on the collection's <code>size</code>.</p>
+<pre><code class="kotlin">val &lt;T : Collection&lt;*&gt;&gt; Assertion&lt;T&gt;.size: Assertion&lt;Int&gt;
+  get() = map(Collection&lt;*&gt;::size)
+</code></pre>
+
+<p>It is very easy to define these kind of extension properties for testing your own types.</p>
+<p>For example:</p>
+<pre><code class="kotlin">val Assertion&lt;Person&gt;.name: Assertion&lt;String&gt;
+  get() = map(Person::name)
+
+val Assertion&lt;Person&gt;.dateOfBirth: Assertion&lt;LocalDate&gt;
+  get() = map(Person::dateOfBirth)
+
+val Assertion&lt;LocalDate&gt;.year: Assertion&lt;Int&gt;
+  get() = map(LocalDate::getYear)
+
+</code></pre>
+
+<p>You can then write the earlier example as:</p>
+<pre><code class="kotlin">val subject = Person(name = &quot;David&quot;, birthDate = LocalDate.of(1947, 1, 8))
+expect(subject) {
+  name.isEqualTo(&quot;David&quot;)
+  birthDate.year.isEqualTo(1947)
+}
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../custom-assertions/" class="btn btn-neutral float-right" title="Custom Assertions">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../.." class="btn btn-neutral" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/robfletcher/strikt/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../.." style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../custom-assertions/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/require.js"></script>
+      <script src="../../search/search.js"></script>
+
+</body>
+</html>
