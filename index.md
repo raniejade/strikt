@@ -1,8 +1,8 @@
-[![CircleCI](https://circleci.com/gh/robfletcher/kirk/tree/master.svg?style=svg)](https://circleci.com/gh/robfletcher/kirk/tree/master)
-[![Download](https://api.bintray.com/packages/robfletcher/maven/kirk-core/images/download.svg) ](https://bintray.com/robfletcher/maven/kirk-core/_latestVersion)
-[API docs](api/kirk/)
+[![CircleCI](https://circleci.com/gh/robfletcher/strikt/tree/master.svg?style=svg)](https://circleci.com/gh/robfletcher/strikt/tree/master)
+[![Download](https://api.bintray.com/packages/robfletcher/maven/strikt-core/images/download.svg) ](https://bintray.com/robfletcher/maven/strikt-core/_latestVersion)
+[API docs](api/strikt/)
 
-Kirk is an assertion library for Kotlin intended for use with a test runner such as [JUnit](https://junit.org/junit5/) or [Spek](http://spekframework.org/).
+Strikt is an assertion library for Kotlin intended for use with a test runner such as [JUnit](https://junit.org/junit5/) or [Spek](http://spekframework.org/).
 It's very much inspired by [AssertJ](https://joel-costigliola.github.io/assertj/), [Atrium](https://robstoll.github.io/atrium/) and [Hamkrest](https://github.com/npryce/hamkrest).
 However, none of those provided exactly what I wanted so I decided to create my own assertions library.
 
@@ -18,7 +18,7 @@ The design goals I had in mind were:
 
 ## Installation
 
-Kirk is available from jcenter.
+Strikt is available from jcenter.
 Add the following to your `build.gradle`.
 
 ```groovy
@@ -26,7 +26,9 @@ repositories {
   jcenter() 
 }
 
-testCompile "io.github.robfletcher.kirk:kirk-core:0.2.1"
+dependencies {
+  testCompile "io.github.robfletcher.strikt:strikt-core:0.3.0"
+}
 ```
 
 ## Assertion styles
@@ -190,9 +192,75 @@ expect(subject) {
 }
 ```
 
+### Mapping with property or getter references
+
+If you use a Kotlin property or Java getter reference as the lambda passed to `map`, Strikt will automatically derive the property name and use it as the subject description on the returned assertion. 
+This is very useful for generating good quality assertion output with minimal effort.
+
+For example, if the previous example fails it will format the error message like this:
+
+```
+▼ Person[name: Ziggy, birthDate: 1972-06-16] 
+  ✘ Ziggy is equal to David
+  ✘ 1972 is equal to 1947
+```
+
+However, using property references, the output is more useful.
+
+```kotlin
+val subject = Person(name = "David", birthDate = LocalDate.of(1947, 1, 8))
+expect(subject) {
+  map(Person::name).isEqualTo("David")
+  map(Person::birthDate).map(LocalDate::getYear).isEqualTo(1947)
+}
+```
+
+```
+▼ Person[name: Ziggy, birthDate: 1972-06-16] 
+  ✘ .name Ziggy is equal to David
+  ✘ .birthDate.year 1972 is equal to 1947
+```
+
+### Mapping with extension properties
+
+Perhaps the most useful application of `map` is in defining extension properties that map an assertion on a type to an assertion on one of the properties (or method return values) of that type.
+
+A simple example is the standard extension property Strikt supplies for `Assertion<Collection<*>>` that maps to an assertion on the collection's `size`.
+
+```kotlin
+val <T : Collection<*>> Assertion<T>.size: Assertion<Int>
+  get() = map(Collection<*>::size)
+```
+
+It is very easy to define these kind of extension properties for testing your own types.
+
+For example:
+
+```kotlin
+val Assertion<Person>.name: Assertion<String>
+  get() = map(Person::name)
+
+val Assertion<Person>.dateOfBirth: Assertion<LocalDate>
+  get() = map(Person::dateOfBirth)
+  
+val Assertion<LocalDate>.year: Assertion<Int>
+  get() = map(LocalDate::getYear)
+
+```
+
+You can then write the earlier example as:
+
+```kotlin
+val subject = Person(name = "David", birthDate = LocalDate.of(1947, 1, 8))
+expect(subject) {
+  name.isEqualTo("David")
+  birthDate.year.isEqualTo(1947)
+}
+```
+
 ## Writing your own assertion functions
 
-One of the aims of Kirk is that implementing your own assertions is _really, really_ easy.
+One of the aims of Strikt is that implementing your own assertions is _really, really_ easy.
 Assertion functions are [extension functions](https://kotlinlang.org/docs/reference/extensions.html) on the interface `Assertion<T>`.
 
 Simple assertions produce a single message on failure.
@@ -200,7 +268,7 @@ They call `assert` passing a lambda with the assertion logic that calls `pass()`
 
 The standard assertions `isNull`, `isEqualTo`, `isA<T>` and many others are simple assertions implemented just like this.
 
-### Simple assertions
+### Atomic assertions
 
 Let's imagine we're implementing an assertion function for `java.time.LocalDate` that tests if the represented date is a leap day.
 
@@ -231,6 +299,23 @@ If this assertion fails it will produce a message like:
 
 The method `assert` accepts a description for the assertion being made and a lambda function `AssertionContext<T>.() -> Unit`.
 That `AssertionContext<T>` receiver provides the lambda everything it needs to access the `subject` of the assertion and report the result via the `pass()` or `fail()` method.
+
+// TODO: explain actual value descriptions
+
+### Assertions based on boolean conditions
+
+For the very simplest assertion functions, instead of using `assert` and calling `pass` or `fail`, you can use `passesIf` with a lambda whose receiver is the assertion subject that returns a boolean.
+
+We can re-implement the example above like this:
+
+```kotlin
+fun Assertion<LocalDate>.isStTibsDay(): Assertion<LocalDate> =
+  passesIf("is St. Tib's Day") { 
+    MonthDay.from(this) == MonthDay.of(2, 29)
+  }
+```
+
+You should not use this form when you want to provide a meaningful description of the actual value but for simple assertions it's slightly less verbose.
 
 ### Composed assertions
 
@@ -278,7 +363,7 @@ If the assertion failed we'll see something like this:
 
 As well as the overall assertion failure message we get a detailed breakdown allowing us to easily find exactly where the problem is.
 
-Several assertion functions in Kirk's standard assertions library use nested assertions.
+Several assertion functions in Strikt's standard assertions library use nested assertions.
 For example, `Assertion<Iterable<E>>.all` applies assertions to each element of an `Iterable` then passes the overall assertion if (and only if) all those nested assertions passed (`allPassed`).
 On the other hand `Assertion<Iterable<E>>.any` applies assertions to the elements of an `Iterable` but will pass the overall assertion if at least one of those nested assertions passed (`anyPassed`).
 The `Assertion<Iterable<E>>.none` assertion passes only if `allFailed` is true for its nested assertions! 

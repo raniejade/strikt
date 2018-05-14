@@ -4,10 +4,10 @@
 
 `val allFailed: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)
 
-Returns `true` if *all* nested assertions evaluated using
+`true` if *all* nested assertions evaluated using
 [AssertionContext.compose](../-assertion-context/compose.md) failed, `false` otherwise.
 
-**See Also**
+### Property
 
-[expect](../expect.md)
-
+`allFailed` - `true` if *all* nested assertions evaluated using
+[AssertionContext.compose](../-assertion-context/compose.md) failed, `false` otherwise.

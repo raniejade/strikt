@@ -10,6 +10,7 @@ Represents the result of an assertion or a group of assertions.
 
 | Name | Summary |
 |---|---|
+| [actual](actual.md) | `val actual: `[`Actual`](../-actual/index.md)`?`<br>The actual value or values that violated the assertion. This property is optional as it does not make sense for all types of assertion. However, it can help improve diagnostic messages where it *is* appropriate. |
 | [assertionCount](assertion-count.md) | `val assertionCount: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)<br>The number of assertions evaluated against [subject](subject.md) |
 | [description](description.md) | `val description: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)<br>The description of the assertion as passed to [Assertion.assert](../-assertion/assert.md). |
 | [failureCount](failure-count.md) | `val failureCount: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)<br>The number of assertions that failed. |

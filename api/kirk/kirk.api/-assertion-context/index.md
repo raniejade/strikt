@@ -8,10 +8,6 @@ Allows reporting of success or failure by assertion implementations.
 
 This class is the receiver of the lambda passed to [Assertion.assert](../-assertion/assert.md).
 
-**See Also**
-
-[Assertion.assert](../-assertion/assert.md)
-
 ### Properties
 
 | Name | Summary |
@@ -22,6 +18,6 @@ This class is the receiver of the lambda passed to [Assertion.assert](../-assert
 
 | Name | Summary |
 |---|---|
-| [compose](compose.md) | `fun compose(assertions: `[`ComposedAssertions`](../-composed-assertions/index.md)`.() -> `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)`): `[`ComposedAssertionResults`](../-composed-assertion-results/index.md)<br>Allows an assertion to be composed of multiple sub-assertions such as on fields of an object or elements of a collection. |
-| [fail](fail.md) | `fun fail(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)<br>Report that the assertion failed. |
+| [compose](compose.md) | `fun compose(assertions: `[`ComposedAssertions`](../-composed-assertions/index.md)`<`[`T`](index.md#T)`>.() -> `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)`): `[`ComposedAssertionResults`](../-composed-assertion-results/index.md)<br>Allows an assertion to be composed of multiple sub-assertions such as on fields of an object or elements of a collection. |
+| [fail](fail.md) | `fun fail(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)<br>`fun fail(actualDescription: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`, actualValue: `[`Any`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html)`?): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)<br>Report that the assertion failed. |
 | [pass](pass.md) | `fun pass(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)<br>Report that the assertion succeeded. |

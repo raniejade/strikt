@@ -6,3 +6,6 @@
 
 The number of assertions that passed.
 
+### Property
+
+`passCount` - The number of assertions that passed.

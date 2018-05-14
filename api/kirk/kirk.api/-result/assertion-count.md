@@ -6,3 +6,6 @@
 
 The number of assertions evaluated against [subject](subject.md)
 
+### Property
+
+`assertionCount` - The number of assertions evaluated against [subject](subject.md)

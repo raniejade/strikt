@@ -6,3 +6,6 @@
 
 Contains the results of any nested assertions.
 
+### Property
+
+`nestedResults` - Contains the results of any nested assertions.

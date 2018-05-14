@@ -6,3 +6,6 @@
 
 The number of assertions that failed.
 
+### Property
+
+`failureCount` - The number of assertions that failed.

@@ -1,0 +1,6 @@
+$dokka.format:gfm
+$dokka.linkExtension:md
+$dokka.location:strikt.assertions$article#java.lang.Class((kotlin.Any))strikt.assertions/java.lang.-class/article.md
+strikt.api
+strikt.assertions
+strikt.internal

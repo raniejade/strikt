@@ -6,3 +6,6 @@
 
 The status of the result.
 
+### Property
+
+`status` - The status of the result.

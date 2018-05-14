@@ -6,3 +6,6 @@
 
 The subject value of the assertion.
 
+### Property
+
+`subject` - The subject value of the assertion.

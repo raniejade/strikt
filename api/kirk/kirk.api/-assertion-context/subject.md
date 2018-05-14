@@ -6,3 +6,11 @@
 
 The assertion subject.
 
+### Property
+
+`subject` - The assertion subject.
+
+**See Also**
+
+[Assertion.assert](../-assertion/assert.md)
+
