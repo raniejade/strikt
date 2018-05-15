@@ -485,8 +485,10 @@ The message string should contain a format placeholder for the value.</p>
 <p>Now if the assertion fails there is a little more detail.</p>
 <pre><code>▼ Expect that 2018-05-01
   ✘ is St. Tib's Day
+    ↳ in fact it is 2018-05-01
 </code></pre>
 
+<p>In this case that's not terribly helpful but when dealing with properties, method return values, or the like it can save a lot of effort in identifying the precise cause of an error.</p>
 <h2 id="assertions-based-on-boolean-conditions">Assertions based on boolean conditions</h2>
 <p>For the very simplest assertion functions, instead of using <code>assert</code> and calling <code>pass</code> or <code>fail</code>, you can use <code>passesIf</code> with a lambda whose receiver is the assertion subject that returns a boolean.</p>
 <p>We can re-implement the example above like this:</p>
