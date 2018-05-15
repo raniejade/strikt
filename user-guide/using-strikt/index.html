@@ -1,127 +1,523 @@
+
+
+
+
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <meta name="author" content="Rob Fletcher">
-  <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Using Strikt - Strikt</title>
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
-
-  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="../../css/highlight.css">
-  
-  <script>
-    // Current page data
-    var mkdocs_page_name = "Using Strikt";
-    var mkdocs_page_input_path = "user-guide/using-strikt.md";
-    var mkdocs_page_url = "/user-guide/using-strikt/";
-  </script>
-  
-  <script src="../../js/jquery-2.1.1.min.js"></script>
-  <script src="../../js/modernizr-2.8.3.min.js"></script>
-  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
-  
-</head>
-
-<body class="wy-body-for-nav" role="document">
-
-  <div class="wy-grid-for-nav">
-
+<html lang="en" class="no-js">
+  <head>
     
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
-      <div class="wy-side-nav-search">
-        <a href="../.." class="icon icon-home"> Strikt</a>
-        <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-  </form>
-</div>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="An assertion library for Kotlin">
+      
+      
+        <link rel="canonical" href="https://robfletcher.github.io/strikt/user-guide/using-strikt/">
+      
+      
+        <meta name="author" content="Rob Fletcher">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../">
+      <meta name="generator" content="mkdocs-0.17.3, mkdocs-material-2.7.3">
+    
+    
+      
+        <title>Using Strikt - Strikt</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.8d40d89b.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.6079476c.css">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.1aa3b519.js"></script>
+    
+    
+      <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+      
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="indigo" data-md-color-accent="orange">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
+    
+      <a href="#using-strikt" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://robfletcher.github.io/strikt/" title="Strikt" class="md-header-nav__button md-logo">
+          
+            <img src="../../img/logo.png" width="24" height="24">
+          
+        </a>
       </div>
-
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-	<ul class="current">
-	  
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           
-            <li class="toctree-l1">
-		
-    <a class="" href="../..">Home</a>
-	    </li>
-          
-            <li class="toctree-l1 current">
-		
-    <a class="current" href="./">Using Strikt</a>
-    <ul class="subnav">
             
-    <li class="toctree-l2"><a href="#using-strikt">Using Strikt</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l3" href="#assertion-styles">Assertion styles</a></li>
-        
-            <li><a class="toctree-l3" href="#flow-typed-assertions">Flow typed assertions</a></li>
-        
-            <li><a class="toctree-l3" href="#assertions-on-elements-of-a-collection">Assertions on elements of a collection</a></li>
-        
-            <li><a class="toctree-l3" href="#asserting-exceptions-are-thrown">Asserting exceptions are thrown</a></li>
-        
-            <li><a class="toctree-l3" href="#mapping-assertions-using-lambdas">Mapping assertions using lambdas</a></li>
-        
-        </ul>
-    
-
-    </ul>
-	    </li>
+              <span class="md-header-nav__topic">
+                Strikt
+              </span>
+              <span class="md-header-nav__topic">
+                Using Strikt
+              </span>
+            
           
-            <li class="toctree-l1">
-		
-    <a class="" href="../custom-assertions/">Custom Assertions</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../../about/">About</a>
-	    </li>
-          
-        </ul>
+        </div>
       </div>
-      &nbsp;
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../..">Strikt</a>
-      </nav>
-
-      
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="breadcrumbs navigation">
-  <ul class="wy-breadcrumbs">
-    <li><a href="../..">Docs</a> &raquo;</li>
-    
-      
-    
-    <li>Using Strikt</li>
-    <li class="wy-breadcrumbs-aside">
-      
-        <a href="https://github.com/robfletcher/strikt/edit/master/docs/user-guide/using-strikt.md"
-          class="icon icon-github"> Edit on GitHub</a>
-      
-    </li>
-  </ul>
-  <hr/>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-          <div role="main">
-            <div class="section">
+          
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="https://github.com/robfletcher/strikt/" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      GitHub
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="drawer">
+    <span class="md-nav__button md-logo">
+      
+        <img src="../../img/logo.png" width="48" height="48">
+      
+    </span>
+    Strikt
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://github.com/robfletcher/strikt/" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      GitHub
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Using Strikt
+      </label>
+    
+    <a href="./" title="Using Strikt" class="md-nav__link md-nav__link--active">
+      Using Strikt
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#assertion-styles" title="Assertion styles" class="md-nav__link">
+    Assertion styles
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#chained-assertions" title="Chained assertions" class="md-nav__link">
+    Chained assertions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#block-assertions" title="Block assertions" class="md-nav__link">
+    Block assertions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chained-assertions-inside-block-assertions" title="Chained assertions inside block assertions" class="md-nav__link">
+    Chained assertions inside block assertions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flow-typed-assertions" title="Flow typed assertions" class="md-nav__link">
+    Flow typed assertions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#assertions-on-elements-of-a-collection" title="Assertions on elements of a collection" class="md-nav__link">
+    Assertions on elements of a collection
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#asserting-exceptions-are-thrown" title="Asserting exceptions are thrown" class="md-nav__link">
+    Asserting exceptions are thrown
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mapping-assertions-using-lambdas" title="Mapping assertions using lambdas" class="md-nav__link">
+    Mapping assertions using lambdas
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mapping-with-property-or-getter-references" title="Mapping with property or getter references" class="md-nav__link">
+    Mapping with property or getter references
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mapping-with-extension-properties" title="Mapping with extension properties" class="md-nav__link">
+    Mapping with extension properties
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../custom-assertions/" title="Custom Assertions" class="md-nav__link">
+      Custom Assertions
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../about/" title="About" class="md-nav__link">
+      About
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#assertion-styles" title="Assertion styles" class="md-nav__link">
+    Assertion styles
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#chained-assertions" title="Chained assertions" class="md-nav__link">
+    Chained assertions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#block-assertions" title="Block assertions" class="md-nav__link">
+    Block assertions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chained-assertions-inside-block-assertions" title="Chained assertions inside block assertions" class="md-nav__link">
+    Chained assertions inside block assertions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flow-typed-assertions" title="Flow typed assertions" class="md-nav__link">
+    Flow typed assertions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#assertions-on-elements-of-a-collection" title="Assertions on elements of a collection" class="md-nav__link">
+    Assertions on elements of a collection
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#asserting-exceptions-are-thrown" title="Asserting exceptions are thrown" class="md-nav__link">
+    Asserting exceptions are thrown
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mapping-assertions-using-lambdas" title="Mapping assertions using lambdas" class="md-nav__link">
+    Mapping assertions using lambdas
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mapping-with-property-or-getter-references" title="Mapping with property or getter references" class="md-nav__link">
+    Mapping with property or getter references
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mapping-with-extension-properties" title="Mapping with extension properties" class="md-nav__link">
+    Mapping with extension properties
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
               
+                
+                  <a href="https://github.com/robfletcher/strikt/edit/master/docs/user-guide/using-strikt.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
                 <h1 id="using-strikt">Using Strikt</h1>
 <p>Strikt does not depend on any particular test runner.
 It can be used with JUnit, Spek or any other runner that supports tests written in Kotlin.</p>
@@ -141,8 +537,10 @@ expect(subject)
 </code></pre>
 
 <p>Produces the output: </p>
-<pre><code>✔ &quot;covfefe&quot; is a java.lang.String
-✘ &quot;covfefe&quot; has length 1
+<pre><code>▼ Expect that &quot;covfefe&quot;
+  ✔ is a java.lang.String
+  ✘ has length 1
+    ↳ found 7
 </code></pre>
 
 <p>Notice that the <code>isUpperCase()</code> assertion is not applied as the earlier <code>hasLength(1)</code> assertion failed.</p>
@@ -159,9 +557,11 @@ expect(subject) {
 </code></pre>
 
 <p>Produces the output:</p>
-<pre><code>✔ &quot;covfefe&quot; is a java.lang.String
-✘ &quot;covfefe&quot; has length 1
-✘ &quot;covfefe&quot; is upper case
+<pre><code>▼ Expect that &quot;covfefe&quot;
+  ✔ is a java.lang.String
+  ✘ has length 1
+    ↳ found 7
+  ✘ is upper case
 </code></pre>
 
 <p>All assertions are applied and since two fail there are two errors logged.</p>
@@ -175,8 +575,9 @@ expect(subject) {
 </code></pre>
 
 <p>Produces the output:</p>
-<pre><code>✘ 1 is less than 1
-✘ 1 is greater than 1
+<pre><code>▼ Expect that 1
+  ✘ is less than 1
+  ✘ is greater than 1
 </code></pre>
 
 <p>Note the <code>isA&lt;Int&gt;</code> assertion (that would have failed) was not evaluated since it was chained after <code>lessThan(1)</code> which failed.
@@ -213,13 +614,17 @@ expect(subject).all {
 </code></pre>
 
 <p>Produces the output:</p>
-<pre><code>✘ [catflap, rubberplant, marzipan] all elements match predicate: 
-  ✔ &quot;catflap&quot; starts with 'c'
-  ✔ &quot;catflap&quot; is lower case
-  ✘ &quot;rubberplant&quot; starts with 'c'
-  ✔ &quot;rubberplant&quot; is lower case
-  ✘ &quot;marzipan&quot; starts with 'c'
-  ✔ &quot;marzipan&quot; is lower case
+<pre><code>▼ Expect that [catflap, rubberplant, marzipan] 
+  ✘ all elements match:
+    ▼ &quot;catflap&quot;
+      ✔ starts with 'c'
+      ✔ is lower case
+    ▼ &quot;rubberplant&quot; 
+      ✘ starts with 'c'
+      ✔ is lower case
+    ▼ &quot;marzipan&quot;
+      ✘ starts with 'c'
+      ✔ is lower case
 </code></pre>
 
 <p>The results are broken down by individual elements in the collection so it's easy to see which failed.</p>
@@ -248,8 +653,11 @@ expect(subject) {
 This is very useful for generating good quality assertion output with minimal effort.</p>
 <p>For example, if the previous example fails it will format the error message like this:</p>
 <pre><code>▼ Person[name: Ziggy, birthDate: 1972-06-16] 
-  ✘ Ziggy is equal to David
-  ✘ 1972 is equal to 1947
+  ▼ Ziggy 
+    ✘ is equal to David
+  ▼ 1972-06-16 
+    ▼ 1972
+      ✘ is equal to 1947
 </code></pre>
 
 <p>However, using property references, the output is more useful.</p>
@@ -261,8 +669,11 @@ expect(subject) {
 </code></pre>
 
 <pre><code>▼ Person[name: Ziggy, birthDate: 1972-06-16] 
-  ✘ .name Ziggy is equal to David
-  ✘ .birthDate.year 1972 is equal to 1947
+  ▼ .name Ziggy 
+    ✘ is equal to David
+  ▼ .birthDate 1972-06-16
+    ▼ .year 1972 
+      ✘ is equal to 1947
 </code></pre>
 
 <h3 id="mapping-with-extension-properties">Mapping with extension properties</h3>
@@ -292,55 +703,88 @@ expect(subject) {
   birthDate.year.isEqualTo(1947)
 }
 </code></pre>
+                
+                  
+                
               
-            </div>
+              
+                
+
+
+              
+            </article>
           </div>
-          <footer>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
   
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../custom-assertions/" class="btn btn-neutral float-right" title="Custom Assertions">Next <span class="icon icon-circle-arrow-right"></span></a>
-      
-      
-        <a href="../.." class="btn btn-neutral" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-      
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../.." title="Home" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Home
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../custom-assertions/" title="Custom Assertions" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Custom Assertions
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
     </div>
   
-
-  <hr/>
-
-  <div role="contentinfo">
-    <!-- Copyright etc -->
-    
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="http://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+        
+      
+    </div>
   </div>
-
-  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
       
-        </div>
-      </div>
-
-    </section>
-
-  </div>
-
-  <div class="rst-versions" role="note" style="cursor: pointer">
-    <span class="rst-current-version" data-toggle="rst-current-version">
+    </div>
+    
+      <script src="../../assets/javascripts/application.0cf9b500.js"></script>
       
-          <a href="https://github.com/robfletcher/strikt/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      <script>app.initialize({version:"0.17.3",url:{base:"../.."}})</script>
       
+        <script src="../../search/require.js"></script>
       
-        <span><a href="../.." style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <script src="../../search/search.js"></script>
       
+    
+    
       
-        <span style="margin-left: 15px"><a href="../custom-assertions/" style="color: #fcfcfc">Next &raquo;</a></span>
-      
-    </span>
-</div>
-    <script>var base_url = '../..';</script>
-    <script src="../../js/theme.js"></script>
-      <script src="../../search/require.js"></script>
-      <script src="../../search/search.js"></script>
-
-</body>
+    
+  </body>
 </html>
