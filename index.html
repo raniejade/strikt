@@ -384,7 +384,9 @@ However, none of those provided exactly what I wanted so I decided to create my 
 <p>Strikt is available from JCenter.
 Add the following to your <code>build.gradle</code>.</p>
 <pre><code class="groovy">repositories { 
-  jcenter() 
+  maven { 
+    url &quot;https://dl.bintray.com/robfletcher/maven&quot; 
+  } 
 }
 
 dependencies {
