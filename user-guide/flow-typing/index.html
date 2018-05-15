@@ -529,10 +529,10 @@ This is very useful for generating good quality assertion output with minimal ef
 <p>For example, if the previous example fails it will format the error message like this:</p>
 <pre><code>▼ Person[name: Ziggy, birthDate: 1972-06-16] 
   ▼ Ziggy 
-    ✘ is equal to David
+    ✗ is equal to David
   ▼ 1972-06-16 
     ▼ 1972
-      ✘ is equal to 1947
+      ✗ is equal to 1947
 </code></pre>
 
 <p>However, using property references, the output is more useful.</p>
@@ -545,10 +545,10 @@ expect(subject) {
 
 <pre><code>▼ Person[name: Ziggy, birthDate: 1972-06-16] 
   ▼ .name Ziggy 
-    ✘ is equal to David
+    ✗ is equal to David
   ▼ .birthDate 1972-06-16
     ▼ .year 1972 
-      ✘ is equal to 1947
+      ✗ is equal to 1947
 </code></pre>
 
 <h3 id="mapping-with-extension-properties">Mapping with extension properties</h3>

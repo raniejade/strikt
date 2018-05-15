@@ -506,10 +506,10 @@ expect(subject) {
 <h2 id="useful-structured-diagnostics">Useful, structured diagnostics</h2>
 <pre><code>Assertion failed:
 ▼ Expect that &quot;The Enlightened take things Lightly&quot;
-  ✘ has length 5
-    ↳ found 35
-  ✘ matches /\d+/
-  ✔ starts with &quot;T&quot;
+  ✗ has length 5
+    • found 35
+  ✗ matches /\d+/
+  ✓ starts with &quot;T&quot;
 </code></pre>
 
 <h2 id="extensibility">Extensibility</h2>
@@ -527,7 +527,7 @@ expect(LocalDate.of(&quot;2018-05-15&quot;)).isStTibsDay()
 
 <p>With the same diagnostic quality:</p>
 <pre><code>▼ Expect that 2018-05-16
-  ✘ is St. Tib's Day 
+  ✗ is St. Tib's Day 
 </code></pre>
 
 <p>Easy custom narrowing:</p>
@@ -564,18 +564,18 @@ expect(subject).any {
 </code></pre>
 
 <pre><code>▼ Expect that the pantheon
-  ✔ at least one element matches:
+  ✓ at least one element matches:
     ▼ Expect that Thor
-      ✘ .culture is equal to &quot;Grœco-Californian&quot;
-        ↳ found &quot;Norse&quot;
-      ✘ .realm is equal to &quot;discord and confusion&quot;
-        ↳ found &quot;thunder&quot;
-      ✘ .aliases contains &quot;Discordia&quot;
-        ↳ found &quot;Þórr&quot;, &quot;Þunor&quot;
+      ✗ .culture is equal to &quot;Grœco-Californian&quot;
+        • found &quot;Norse&quot;
+      ✗ .realm is equal to &quot;discord and confusion&quot;
+        • found &quot;thunder&quot;
+      ✗ .aliases contains &quot;Discordia&quot;
+        • found &quot;Þórr&quot;, &quot;Þunor&quot;
     ▼ Expect that Eris
-      ✔ .culture is equal to &quot;Grœco-Californian&quot;
-      ✔ .realm is equal to &quot;discord and confusion&quot;
-      ✔ .aliases contains &quot;Discordia&quot;
+      ✓ .culture is equal to &quot;Grœco-Californian&quot;
+      ✓ .realm is equal to &quot;discord and confusion&quot;
+      ✓ .aliases contains &quot;Discordia&quot;
 </code></pre>
                 
                   
