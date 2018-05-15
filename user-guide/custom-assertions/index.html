@@ -329,22 +329,9 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#simple-assertions" title="Simple assertions" class="md-nav__link">
-    Simple assertions
+  <a href="#atomic-assertions" title="Atomic assertions" class="md-nav__link">
+    Atomic assertions
   </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#where-do-subject-pass-and-fail-come-from" title="Where do subject, pass() and fail() come from?" class="md-nav__link">
-    Where do subject, pass() and fail() come from?
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -356,8 +343,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#assertions-based-on-boolean-conditions" title="Assertions based on boolean conditions" class="md-nav__link">
-    Assertions based on boolean conditions
+  <a href="#simple-atomic-assertions-with-boolean-expressions" title="Simple atomic assertions with boolean expressions" class="md-nav__link">
+    Simple atomic assertions with boolean expressions
   </a>
   
 </li>
@@ -413,22 +400,9 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#simple-assertions" title="Simple assertions" class="md-nav__link">
-    Simple assertions
+  <a href="#atomic-assertions" title="Atomic assertions" class="md-nav__link">
+    Atomic assertions
   </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#where-do-subject-pass-and-fail-come-from" title="Where do subject, pass() and fail() come from?" class="md-nav__link">
-    Where do subject, pass() and fail() come from?
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -440,8 +414,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#assertions-based-on-boolean-conditions" title="Assertions based on boolean conditions" class="md-nav__link">
-    Assertions based on boolean conditions
+  <a href="#simple-atomic-assertions-with-boolean-expressions" title="Simple atomic assertions with boolean expressions" class="md-nav__link">
+    Simple atomic assertions with boolean expressions
   </a>
   
 </li>
@@ -475,8 +449,8 @@
                 <h1 id="custom-assertions">Custom Assertions</h1>
 <p>One of the aims of Strikt is that implementing your own assertions is <em>really, really</em> easy.
 Assertion functions are <a href="https://kotlinlang.org/docs/reference/extensions.html">extension functions</a> on the interface <code>Assertion&lt;T&gt;</code>.</p>
-<h2 id="simple-assertions">Simple assertions</h2>
-<p>Simple assertions produce a single message on failure.
+<h2 id="atomic-assertions">Atomic assertions</h2>
+<p>"Atomic" assertions produce a single message on failure.
 They call <code>assert</code> passing a lambda with the assertion logic that calls <code>pass()</code> or <code>fail()</code>.</p>
 <p>The standard assertions <code>isNull</code>, <code>isEqualTo</code>, <code>isA&lt;T&gt;</code> and many others are simple assertions implemented just like this.</p>
 <p>Let's imagine we're implementing an assertion function for <code>java.time.LocalDate</code> that tests if the represented date is a leap day.</p>
@@ -501,9 +475,11 @@ They call <code>assert</code> passing a lambda with the assertion logic that cal
   ✘ is St. Tib's Day 
 </code></pre>
 
-<h3 id="where-do-subject-pass-and-fail-come-from">Where do <code>subject</code>, <code>pass()</code> and <code>fail()</code> come from?</h3>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
 <p>The method <code>assert</code> accepts a description for the assertion being made and a lambda function <code>AssertionContext&lt;T&gt;.() -&gt; Unit</code>.
 That <code>AssertionContext&lt;T&gt;</code> receiver provides the lambda everything it needs to access the <code>subject</code> of the assertion and report the result via the <code>pass()</code> or <code>fail()</code> method.</p>
+</div>
 <h2 id="describing-the-actual-value">Describing the "actual" value</h2>
 <p>For assertions that perform a comparison between actual and expected values it is usually helpful to describe the value that was incorrect.
 That way any assertion failure message will be more helpful.</p>
@@ -525,7 +501,7 @@ The message string should contain a format placeholder for the value.</p>
 </code></pre>
 
 <p>In this case that's not terribly helpful but when dealing with properties, method return values, or the like it can save a lot of effort in identifying the precise cause of an error.</p>
-<h2 id="assertions-based-on-boolean-conditions">Assertions based on boolean conditions</h2>
+<h2 id="simple-atomic-assertions-with-boolean-expressions">Simple atomic assertions with boolean expressions</h2>
 <p>For the very simplest assertion functions, instead of using <code>assert</code> and calling <code>pass</code> or <code>fail</code>, you can use <code>passesIf</code> with a lambda whose receiver is the assertion subject that returns a boolean.</p>
 <p>We can re-implement the example above like this:</p>
 <pre><code class="kotlin">fun Assertion&lt;LocalDate&gt;.isStTibsDay(): Assertion&lt;LocalDate&gt; =

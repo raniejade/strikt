@@ -446,14 +446,18 @@ expect(subject).all {
 
 <p>The results are broken down by individual elements in the collection so it's easy to see which failed.</p>
 <h2 id="asserting-exceptions-are-thrown">Asserting exceptions are thrown</h2>
-<p>To assert that some code throws an exception you can use the <code>throws&lt;E&gt;</code> function.
+<p>To assert that some code throws an exception you can use an assertion on a lambda <code>() -&gt; Unit</code> that performs the operation that should throw an exception and the <code>throws&lt;E&gt;</code> assertion function.
 For example:</p>
-<pre><code class="kotlin">throws&lt;TooMuchFlaxException&gt; {
-  service.computeMeaning()
-}
+<pre><code class="kotlin">expect { service.computeMeaning() }
+  .throws&lt;TooMuchFlaxException&gt;()
 </code></pre>
 
 <p>The <code>throws&lt;E&gt;</code> function returns an <code>Assertion&lt;E&gt;</code> so you can chain assertions about the exception after it.</p>
+<p>There is also a top level function <code>throws( () -&gt; Unit )</code> that makes this even more concise.</p>
+<pre><code class="kotlin">throws&lt;TooMuchFlaxException&gt; { 
+  service.computeMeaning() 
+}
+</code></pre>
                 
                   
                 

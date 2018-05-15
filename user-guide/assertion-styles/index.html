@@ -304,12 +304,18 @@
     Block assertions
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#chained-assertions-inside-block-assertions" title="Chained assertions inside block assertions" class="md-nav__link">
     Chained assertions inside block assertions
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -404,12 +410,18 @@
     Block assertions
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#chained-assertions-inside-block-assertions" title="Chained assertions inside block assertions" class="md-nav__link">
     Chained assertions inside block assertions
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -436,7 +448,7 @@
 <p>Two different styles of assertion -- chained and block -- are supported for different use-cases.
 You can mix and match both in the same test and even nest chained assertions inside block assertions.</p>
 <h2 id="chained-assertions">Chained assertions</h2>
-<p>Chained assertions use a fluent API.
+<p>Chained assertions use a fluent API similar to AssertJ.
 They fail fast.
 That is, the first assertion that fails breaks the chain and further assertions are not evaluated.</p>
 <p>Each assertion in the chain returns an <code>Assertion</code> object that supports further assertions.</p>
@@ -456,8 +468,9 @@ expect(subject)
 
 <p>Notice that the <code>isUpperCase()</code> assertion is not applied as the earlier <code>hasLength(1)</code> assertion failed.</p>
 <h2 id="block-assertions">Block assertions</h2>
-<p>Block assertions are declared in a block whose receiver is an assertion on a target object.
-Block assertions do <em>not</em> fail fast.
+<p>Block assertions are declared in a lambda whose receiver is an <code>Assertion&lt;T&gt;</code> object.
+They allow multiple assertions (or assertion chains) to be evaluated against the subject.</p>
+<p>Block assertions do <em>not</em> fail fast.
 That is, all assertions in the block are evaluated and the result of the "compound" assertion will include results for all the assertions made in the block.</p>
 <pre><code class="kotlin">val subject = &quot;covfefe&quot;
 expect(subject) {
@@ -476,7 +489,7 @@ expect(subject) {
 </code></pre>
 
 <p>All assertions are applied and since two fail there are two errors logged.</p>
-<h2 id="chained-assertions-inside-block-assertions">Chained assertions inside block assertions</h2>
+<h3 id="chained-assertions-inside-block-assertions">Chained assertions inside block assertions</h3>
 <p>Chained assertions inside a block <em>will</em> still fail fast but will not prevent other assertions in the block from being evaluated.</p>
 <pre><code class="kotlin">val subject = 1L
 expect(subject) {
