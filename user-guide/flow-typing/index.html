@@ -13,7 +13,7 @@
         <meta name="description" content="An assertion library for Kotlin">
       
       
-        <link rel="canonical" href="https://robfletcher.github.io/strikt/about/">
+        <link rel="canonical" href="https://robfletcher.github.io/strikt/user-guide/flow-typing/">
       
       
         <meta name="author" content="Rob Fletcher">
@@ -37,22 +37,22 @@
       
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
-      <link rel="shortcut icon" href="../">
+      <link rel="shortcut icon" href="../../">
       <meta name="generator" content="mkdocs-0.17.3, mkdocs-material-2.7.3">
     
     
       
-        <title>About - Strikt</title>
+        <title>Flow Typing - Strikt</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/application.8d40d89b.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/application.8d40d89b.css">
       
-        <link rel="stylesheet" href="../assets/stylesheets/application-palette.6079476c.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.6079476c.css">
       
     
     
-      <script src="../assets/javascripts/modernizr.1aa3b519.js"></script>
+      <script src="../../assets/javascripts/modernizr.1aa3b519.js"></script>
     
     
       <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
@@ -99,7 +99,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
     
-      <a href="#about-strikt" tabindex="1" class="md-skip">
+      <a href="#flow-typing" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -125,7 +125,7 @@
                 Strikt
               </span>
               <span class="md-header-nav__topic">
-                About
+                Flow Typing
               </span>
             
           
@@ -242,7 +242,7 @@
 
 
   <li class="md-nav__item">
-    <a href=".." title="Home" class="md-nav__link">
+    <a href="../.." title="Home" class="md-nav__link">
       Home
     </a>
   </li>
@@ -254,7 +254,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../user-guide/getting-started/" title="Getting Started" class="md-nav__link">
+    <a href="../getting-started/" title="Getting Started" class="md-nav__link">
       Getting Started
     </a>
   </li>
@@ -266,44 +266,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../user-guide/assertion-styles/" title="Assertion Styles" class="md-nav__link">
+    <a href="../assertion-styles/" title="Assertion Styles" class="md-nav__link">
       Assertion Styles
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../user-guide/flow-typing/" title="Flow Typing" class="md-nav__link">
-      Flow Typing
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../user-guide/common-patterns/" title="Common Assertion Patterns" class="md-nav__link">
-      Common Assertion Patterns
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../user-guide/custom-assertions/" title="Custom Assertions" class="md-nav__link">
-      Custom Assertions
     </a>
   </li>
 
@@ -323,11 +287,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="toc">
-        About
+        Flow Typing
       </label>
     
-    <a href="./" title="About" class="md-nav__link md-nav__link--active">
-      About
+    <a href="./" title="Flow Typing" class="md-nav__link md-nav__link--active">
+      Flow Typing
     </a>
     
       
@@ -341,16 +305,43 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#license" title="License" class="md-nav__link">
-    License
+  <a href="#nullable-subjects" title="Nullable subjects" class="md-nav__link">
+    Nullable subjects
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#contributing" title="Contributing" class="md-nav__link">
-    Contributing
+  <a href="#narrowing-assertions" title="Narrowing assertions" class="md-nav__link">
+    Narrowing assertions
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mapping-assertions-using-lambdas" title="Mapping assertions using lambdas" class="md-nav__link">
+    Mapping assertions using lambdas
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mapping-with-property-or-getter-references" title="Mapping with property or getter references" class="md-nav__link">
+    Mapping with property or getter references
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mapping-with-extension-properties" title="Mapping with extension properties" class="md-nav__link">
+    Mapping with extension properties
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -362,6 +353,42 @@
   
 </nav>
     
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../common-patterns/" title="Common Assertion Patterns" class="md-nav__link">
+      Common Assertion Patterns
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../custom-assertions/" title="Custom Assertions" class="md-nav__link">
+      Custom Assertions
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../about/" title="About" class="md-nav__link">
+      About
+    </a>
   </li>
 
     
@@ -386,16 +413,43 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#license" title="License" class="md-nav__link">
-    License
+  <a href="#nullable-subjects" title="Nullable subjects" class="md-nav__link">
+    Nullable subjects
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#contributing" title="Contributing" class="md-nav__link">
-    Contributing
+  <a href="#narrowing-assertions" title="Narrowing assertions" class="md-nav__link">
+    Narrowing assertions
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mapping-assertions-using-lambdas" title="Mapping assertions using lambdas" class="md-nav__link">
+    Mapping assertions using lambdas
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mapping-with-property-or-getter-references" title="Mapping with property or getter references" class="md-nav__link">
+    Mapping with property or getter references
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mapping-with-extension-properties" title="Mapping with extension properties" class="md-nav__link">
+    Mapping with extension properties
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -415,16 +469,100 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/robfletcher/strikt/edit/master/docs/about.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/robfletcher/strikt/edit/master/docs/user-guide/flow-typing.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="about-strikt">About Strikt</h1>
-<p>Strikt was written by <a href="https://github.com/robfletcher">Rob Fletcher</a>.</p>
-<h2 id="license">License</h2>
-<p>Strikt is licensed under the <a href="https://www.apache.org/licenses/LICENSE-2.0.html">Apache License v2.0</a>.</p>
-<h2 id="contributing">Contributing</h2>
-<p>Suggestions and contributions are very welcome.</p>
-<p>You can read and raise issues on <a href="https://github.com/robfletcher/strikt/issues">the project's GitHub repository</a>.</p>
+                <h1 id="flow-typing">Flow typing</h1>
+<p>Strikt's API is designed to work with Kotlin's strong type system. </p>
+<p>Chained assertions return an <code>Assertion&lt;T&gt;</code> object with a generic type representing the (declared) type of the assertion subject.
+Some assertions will return a <em>different</em> type to the one they were called on.</p>
+<h2 id="nullable-subjects">Nullable subjects</h2>
+<p>For example, if the subject of an assertion is a nullable type (in other words it's an <code>Assertion&lt;T?&gt;</code>) the assertion methods <code>isNull()</code> and <code>isNotNull()</code> are available.
+The return type of <code>isNotNull()</code> is <code>Assertion&lt;T&gt;</code> because we now <em>know</em> the subject is not null.
+You will find IDE code-completion will no longer offer the <code>isNull()</code> and <code>isNotNull()</code> assertion methods.</p>
+<h2 id="narrowing-assertions">Narrowing assertions</h2>
+<p>Another example comes when testing values with broad types and making assertions about their specific runtime type.
+This is called "narrowing".</p>
+<p>For example:</p>
+<pre><code class="kotlin">val subject: Map&lt;String, Any&gt; = mapOf(&quot;count&quot; to 1, &quot;name&quot; to &quot;Rob&quot;)
+expect(subject.get(&quot;count&quot;)).isA&lt;Number&gt;().isGreaterThan(0)
+expect(subject.get(&quot;name&quot;)).isA&lt;String&gt;().hasLength(3)
+</code></pre>
+
+<p>The return type of the subject map's <code>get()</code> method is <code>Any</code> but using the narrowing assertion <code>isA&lt;T&gt;()</code> we can both assert the type of the value and -- because the compiler now knows it is dealing with an <code>Assertion&lt;String&gt;</code> or an <code>Assertion&lt;Number&gt;</code> -- we can use more specialized assertion methods that are only available for those subject types.</p>
+<p>Without the <code>isA&lt;T&gt;()</code> assertion the code would not compile:</p>
+<pre><code class="kotlin">val subject: Map&lt;String, Any&gt; = mapOf(&quot;count&quot; to 1, &quot;name&quot; to &quot;Rob&quot;)
+expect(subject.get(&quot;count&quot;)).isGreaterThan(0) // isGreaterThan does not exist on Assertion&lt;Any&gt;
+expect(subject.get(&quot;name&quot;)).hasLength(3) // hasLength does not exist on Assertion&lt;Any&gt;
+</code></pre>
+
+<p>This mechanism means that IDE code-completion is optimally helpful as only assertion methods that are appropriate to the subject type will be suggested. </p>
+<h2 id="mapping-assertions-using-lambdas">Mapping assertions using lambdas</h2>
+<p>In order to map the assertion chain to a property or method result of the current subject you can use the <code>map</code> method.
+The method takes a lambda whose receiver is the current subject and returns an <code>Assertion&lt;R&gt;</code> where <code>R</code> is whatever the lambda returns.</p>
+<p>This is sometimes useful for making assertions about the properties of an object or the values returned by methods.</p>
+<pre><code class="kotlin">val subject = Person(name = &quot;David&quot;, birthDate = LocalDate.of(1947, 1, 8))
+expect(subject) {
+  map { name }.isEqualTo(&quot;David&quot;)
+  map { birthDate }.map { year }.isEqualTo(1947)
+}
+</code></pre>
+
+<h3 id="mapping-with-property-or-getter-references">Mapping with property or getter references</h3>
+<p>If you use a Kotlin property or Java getter reference as the lambda passed to <code>map</code>, Strikt will automatically derive the property name and use it as the subject description on the returned assertion. 
+This is very useful for generating good quality assertion output with minimal effort.</p>
+<p>For example, if the previous example fails it will format the error message like this:</p>
+<pre><code>▼ Person[name: Ziggy, birthDate: 1972-06-16] 
+  ▼ Ziggy 
+    ✘ is equal to David
+  ▼ 1972-06-16 
+    ▼ 1972
+      ✘ is equal to 1947
+</code></pre>
+
+<p>However, using property references, the output is more useful.</p>
+<pre><code class="kotlin">val subject = Person(name = &quot;David&quot;, birthDate = LocalDate.of(1947, 1, 8))
+expect(subject) {
+  map(Person::name).isEqualTo(&quot;David&quot;)
+  map(Person::birthDate).map(LocalDate::getYear).isEqualTo(1947)
+}
+</code></pre>
+
+<pre><code>▼ Person[name: Ziggy, birthDate: 1972-06-16] 
+  ▼ .name Ziggy 
+    ✘ is equal to David
+  ▼ .birthDate 1972-06-16
+    ▼ .year 1972 
+      ✘ is equal to 1947
+</code></pre>
+
+<h3 id="mapping-with-extension-properties">Mapping with extension properties</h3>
+<p>Perhaps the most useful application of <code>map</code> is in defining extension properties that map an assertion on a type to an assertion on one of the properties (or method return values) of that type.</p>
+<p>A simple example is the standard extension property Strikt supplies for <code>Assertion&lt;Collection&lt;*&gt;&gt;</code> that maps to an assertion on the collection's <code>size</code>.</p>
+<pre><code class="kotlin">val &lt;T : Collection&lt;*&gt;&gt; Assertion&lt;T&gt;.size: Assertion&lt;Int&gt;
+  get() = map(Collection&lt;*&gt;::size)
+</code></pre>
+
+<p>It is very easy to define these kind of extension properties for testing your own types.</p>
+<p>For example:</p>
+<pre><code class="kotlin">val Assertion&lt;Person&gt;.name: Assertion&lt;String&gt;
+  get() = map(Person::name)
+
+val Assertion&lt;Person&gt;.dateOfBirth: Assertion&lt;LocalDate&gt;
+  get() = map(Person::dateOfBirth)
+
+val Assertion&lt;LocalDate&gt;.year: Assertion&lt;Int&gt;
+  get() = map(LocalDate::getYear)
+
+</code></pre>
+
+<p>You can then write the earlier example as:</p>
+<pre><code class="kotlin">val subject = Person(name = &quot;David&quot;, birthDate = LocalDate.of(1947, 1, 8))
+expect(subject) {
+  name.isEqualTo(&quot;David&quot;)
+  birthDate.year.isEqualTo(1947)
+}
+</code></pre>
                 
                   
                 
@@ -445,7 +583,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../user-guide/custom-assertions/" title="Custom Assertions" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../assertion-styles/" title="Assertion Styles" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -454,11 +592,25 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Custom Assertions
+                Assertion Styles
               </span>
             </div>
           </a>
         
+        
+          <a href="../common-patterns/" title="Common Assertion Patterns" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Common Assertion Patterns
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
         
       </nav>
     </div>
@@ -482,13 +634,13 @@
       
     </div>
     
-      <script src="../assets/javascripts/application.0cf9b500.js"></script>
+      <script src="../../assets/javascripts/application.0cf9b500.js"></script>
       
-      <script>app.initialize({version:"0.17.3",url:{base:".."}})</script>
+      <script>app.initialize({version:"0.17.3",url:{base:"../.."}})</script>
       
-        <script src="../search/require.js"></script>
+        <script src="../../search/require.js"></script>
       
-        <script src="../search/search.js"></script>
+        <script src="../../search/search.js"></script>
       
     
     

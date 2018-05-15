@@ -11,7 +11,31 @@
 
     
     <url>
-     <loc>https://robfletcher.github.io/strikt//user-guide/using-strikt/</loc>
+     <loc>https://robfletcher.github.io/strikt//user-guide/getting-started/</loc>
+     <lastmod>2018-05-14</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>https://robfletcher.github.io/strikt//user-guide/assertion-styles/</loc>
+     <lastmod>2018-05-14</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>https://robfletcher.github.io/strikt//user-guide/flow-typing/</loc>
+     <lastmod>2018-05-14</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>https://robfletcher.github.io/strikt//user-guide/common-patterns/</loc>
      <lastmod>2018-05-14</lastmod>
      <changefreq>daily</changefreq>
     </url>

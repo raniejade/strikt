@@ -99,10 +99,6 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
     
-      <a href="#installation" tabindex="1" class="md-skip">
-        Skip to content
-      </a>
-    
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
@@ -248,36 +244,9 @@
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
     
     
-      <label class="md-nav__link md-nav__link--active" for="toc">
-        Home
-      </label>
-    
     <a href="." title="Home" class="md-nav__link md-nav__link--active">
       Home
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-  
-    <label class="md-nav__title" for="toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#installation" title="Installation" class="md-nav__link">
-    Installation
-  </a>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
     
   </li>
 
@@ -288,8 +257,44 @@
 
 
   <li class="md-nav__item">
-    <a href="user-guide/using-strikt/" title="Using Strikt" class="md-nav__link">
-      Using Strikt
+    <a href="user-guide/getting-started/" title="Getting Started" class="md-nav__link">
+      Getting Started
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="user-guide/assertion-styles/" title="Assertion Styles" class="md-nav__link">
+      Assertion Styles
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="user-guide/flow-typing/" title="Flow Typing" class="md-nav__link">
+      Flow Typing
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="user-guide/common-patterns/" title="Common Assertion Patterns" class="md-nav__link">
+      Common Assertion Patterns
     </a>
   </li>
 
@@ -325,35 +330,6 @@
               </div>
             
             
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
-<nav class="md-nav md-nav--secondary">
-  
-  
-  
-    <label class="md-nav__title" for="toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#installation" title="Installation" class="md-nav__link">
-    Installation
-  </a>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
-                  </div>
-                </div>
-              </div>
-            
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
@@ -380,19 +356,6 @@ However, none of those provided exactly what I wanted so I decided to create my 
 <li>A rich selection of assertions that apply to common types without a tangled hierarchy of classes and self-referential generic types, (it turns out Kotlin's extension functions make this pretty easy to accomplish).</li>
 <li>Simple setup -- one dependency, one (okay, two) imports and you're up and running.</li>
 </ul>
-<h2 id="installation">Installation</h2>
-<p>Strikt is available from JCenter.
-Add the following to your <code>build.gradle</code>.</p>
-<pre><code class="groovy">repositories { 
-  maven { 
-    url &quot;https://dl.bintray.com/robfletcher/maven&quot; 
-  } 
-}
-
-dependencies {
-  testCompile &quot;io.github.robfletcher.strikt:strikt-core:0.3.0&quot;
-}
-</code></pre>
                 
                   
                 
@@ -414,13 +377,13 @@ dependencies {
       <nav class="md-footer-nav__inner md-grid">
         
         
-          <a href="user-guide/using-strikt/" title="Using Strikt" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="user-guide/getting-started/" title="Getting Started" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Using Strikt
+                Getting Started
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
