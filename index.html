@@ -550,13 +550,11 @@ expect(subject).realm.isEqualTo(&quot;discord and confusion&quot;)
 <h2 id="simple-setup">Simple setup</h2>
 <p>One dependency. Two imports. Go!</p>
 <pre><code class="groovy">repositories { 
-  maven { 
-    url &quot;https://dl.bintray.com/robfletcher/maven&quot; 
-  } 
+  jcenter() 
 }
 
 dependencies {
-  testCompile &quot;io.strikt:strikt-core:0.4.0&quot;
+  testCompile &quot;io.strikt:strikt-core:0.4.1&quot;
 }
 </code></pre>
 

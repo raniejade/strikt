@@ -434,16 +434,14 @@
 <p>Strikt does not depend on any particular test runner.
 It can be used with JUnit, Spek or any other runner that supports tests written in Kotlin.</p>
 <h2 id="installation">Installation</h2>
-<p>Strikt is available from Bintray.
+<p>Strikt is available from JCenter.
 Add the following to your <code>build.gradle</code>.</p>
 <pre><code class="groovy">repositories { 
-  maven { 
-    url &quot;https://dl.bintray.com/robfletcher/maven&quot; 
-  } 
+  jcenter() 
 }
 
 dependencies {
-  testCompile &quot;io.strikt:strikt-core:0.4.0&quot;
+  testCompile &quot;io.strikt:strikt-core:0.4.1&quot;
 }
 </code></pre>
 
