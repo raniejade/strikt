@@ -516,7 +516,7 @@ The message string should contain a format placeholder for the value.</p>
 
 <p>In this case that's not terribly helpful but when dealing with properties, method return values, or the like it can save a lot of effort in identifying the precise cause of an error.</p>
 <h2 id="simple-atomic-assertions-with-boolean-expressions">Simple atomic assertions with boolean expressions</h2>
-<p>For the very simplest assertion functions, instead of using <code>assert</code> and calling <code>pass</code> or <code>fail</code>, you can use <code>passesIf</code> with a lambda whose receiver is the assertion subject that returns a boolean.</p>
+<p>For the simplest assertion functions, instead of using <code>assert</code> and calling <code>pass</code> or <code>fail</code>, you can use <code>passesIf</code> with a lambda whose receiver is the assertion subject that returns a boolean.</p>
 <p>We can re-implement the example above like this:</p>
 <pre><code class="kotlin">fun Assertion&lt;LocalDate&gt;.isStTibsDay(): Assertion&lt;LocalDate&gt; =
   passesIf(&quot;is St. Tib's Day&quot;) { 
@@ -527,7 +527,7 @@ The message string should contain a format placeholder for the value.</p>
 <p>You should not use this form when you want to provide a meaningful description of the actual value but for simple assertions it's slightly less verbose.</p>
 <h2 id="composed-assertions">Composed assertions</h2>
 <p>For more complex assertion implementations you can "nest" sub-assertions inside your overall assertion.
-Composed assertions' results are reported under the overall result which can be very useful for providing detailed diagnostic information in case of a failure.</p>
+Composed assertions' results are reported under the overall result which is useful for providing detailed diagnostic information in case of a failure.</p>
 <p>Composed assertions are useful for things like:</p>
 <ul>
 <li>applying assertions to multiple properties of an object, for example for a field-by-field comparison.</li>
