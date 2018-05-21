@@ -381,10 +381,10 @@ However, none of those provided exactly what I wanted so I decided to create my 
 <h2 id="strong-typing">Strong typing</h2>
 <p>Assertion functions can "narrow" the type of the assertion:</p>
 <pre><code class="kotlin">val subject: Any? = &quot;The Enlightened take things Lightly&quot;
-expect(subject)              // type: Assertion&lt;Any?&gt;
-  .isNotNull()               // type: Assertion&lt;Any&gt;
-  .isA&lt;String&gt;()             // type: Assertion&lt;String&gt;
-  .matches(Regex(&quot;[\w\s]+&quot;)) // only available on Assertion&lt;CharSequence&gt;
+expect(subject)                // type: Assertion&lt;Any?&gt;
+  .isNotNull()                 // type: Assertion&lt;Any&gt;
+  .isA&lt;String&gt;()               // type: Assertion&lt;String&gt;
+  .matches(Regex(&quot;[\\w\\s]+&quot;)) // only available on Assertion&lt;CharSequence&gt;
 </code></pre>
 
 <p>Assertions can "map" to properties and method results in a type safe way:</p>
@@ -405,34 +405,32 @@ expect(subject) {
 </code></pre>
 
 <h2 id="useful-structured-diagnostics">Useful, structured diagnostics</h2>
-<pre><code>Assertion failed:
-▼ Expect that &quot;The Enlightened take things Lightly&quot;
-  ✗ has length 5
-    • found 35
-  ✗ matches /\d+/
-  ✓ starts with &quot;T&quot;
+<pre><code>Multiple Failures (2 failures)
+    has length 5 : found 35
+    matches the regular expression /\d+/
 </code></pre>
 
 <h2 id="extensibility">Extensibility</h2>
 <p>Easy custom assertions:</p>
 <pre><code class="kotlin">fun Assertion&lt;LocalDate&gt;.isStTibsDay() =
-  assert(&quot;is St. Tib's Day&quot;) { 
+  assert(&quot;is St. Tib's Day&quot;) {
     when (MonthDay.from(subject)) {
       MonthDay.of(2, 29) -&gt; pass()
       else               -&gt; fail()
     }
   }
 
-expect(LocalDate.of(&quot;2018-05-15&quot;)).isStTibsDay()
+expect(LocalDate.of(2018, 5, 15)).isStTibsDay()
 </code></pre>
 
 <p>With the same diagnostic quality:</p>
-<pre><code>▼ Expect that 2018-05-16
-  ✗ is St. Tib's Day 
+<pre><code>Expect that 2018-05-15 (1 failure)
+    is St. Tib's Day 
 </code></pre>
 
 <p>Easy custom narrowing:</p>
-<pre><code class="kotlin">val Assertion&lt;Deity&gt;.realm: String = map(Deity::realm)
+<pre><code class="kotlin">val Assertion&lt;Deity&gt;.realm: Assertion&lt;String&gt;
+  get() = map(Deity::realm)
 
 val subject = Pantheon.ERIS
 expect(subject).realm.isEqualTo(&quot;discord and confusion&quot;)
@@ -462,19 +460,27 @@ expect(subject).any {
 }
 </code></pre>
 
-<pre><code>▼ Expect that the pantheon
+<h2 id="detailed-reporting">Detailed reporting</h2>
+<pre><code>▼ Expect that [Eris, Thor]
   ✓ at least one element matches:
-    ▼ Expect that Thor
-      ✗ .culture is equal to &quot;Grœco-Californian&quot;
-        • found &quot;Norse&quot;
-      ✗ .realm is equal to &quot;discord and confusion&quot;
-        • found &quot;thunder&quot;
-      ✗ .aliases contains &quot;Discordia&quot;
-        • found &quot;Þórr&quot;, &quot;Þunor&quot;
     ▼ Expect that Eris
-      ✓ .culture is equal to &quot;Grœco-Californian&quot;
-      ✓ .realm is equal to &quot;discord and confusion&quot;
-      ✓ .aliases contains &quot;Discordia&quot;
+      ▼ .culture &quot;Grœco-Californian&quot;
+        ✓ is equal to &quot;Grœco-Californian&quot;
+      ▼ .realm &quot;discord and confusion&quot;
+        ✓ is equal to &quot;discord and confusion&quot;
+      ▼ .aliases [&quot;Ἔρις&quot;, &quot;Discordia&quot;]
+        ✓ contains the elements [&quot;Discordia&quot;]
+          ▼ Expect that [&quot;Ἔρις&quot;, &quot;Discordia&quot;]
+            ✓ contains &quot;Discordia&quot;
+    ▼ Expect that Thor
+      ▼ .culture &quot;Norse&quot;
+        ✗ is equal to &quot;Grœco-Californian&quot;
+      ▼ .realm &quot;thunder&quot;
+        ✗ is equal to &quot;discord and confusion&quot;
+      ▼ .aliases [&quot;Þórr&quot;, &quot;Þunor&quot;]
+        ✗ contains the elements [&quot;Discordia&quot;]
+          ▼ Expect that [&quot;Þórr&quot;, &quot;Þunor&quot;]
+            ✗ contains &quot;Discordia&quot;
 </code></pre>
                 
                   
@@ -526,6 +532,18 @@ expect(subject).any {
       </div>
       
         
+  <div class="md-footer-social">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+      <a href="https://github.com/robfletcher/strikt" class="md-footer-social__link fa fa-github"></a>
+    
+      <a href="https://kotlinlang.slack.com/messages/CAR7KJ96J" class="md-footer-social__link fa fa-slack"></a>
+    
+      <a href="https://twitter.com/stri_kt" class="md-footer-social__link fa fa-twitter"></a>
+    
+  </div>
+
       
     </div>
   </div>
