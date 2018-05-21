@@ -474,10 +474,8 @@ expect(subject)
 </code></pre>
 
 <p>Produces the output: </p>
-<pre><code>▼ Expect that &quot;covfefe&quot;
-  ✓ is a java.lang.String
-  ✗ has length 1
-    • found 7
+<pre><code>Expect that &quot;covfefe&quot; (1 failure)
+    has length 1 : found 7
 </code></pre>
 
 <p>Notice that the <code>isUpperCase()</code> assertion is not applied as the earlier <code>hasLength(1)</code> assertion failed.</p>
@@ -495,11 +493,9 @@ expect(subject) {
 </code></pre>
 
 <p>Produces the output:</p>
-<pre><code>▼ Expect that &quot;covfefe&quot;
-  ✓ is a java.lang.String
-  ✗ has length 1
-    • found 7
-  ✗ is upper case
+<pre><code>Expect that &quot;covfefe&quot; (2 failures)
+    has length 1 : found 7
+    is upper case
 </code></pre>
 
 <p>All assertions are applied and since two fail there are two errors logged.</p>
@@ -513,9 +509,9 @@ expect(subject) {
 </code></pre>
 
 <p>Produces the output:</p>
-<pre><code>▼ Expect that 1
-  ✗ is less than 1
-  ✗ is greater than 1
+<pre><code>Expect that 1
+    is less than 1 : found 1
+    is greater than 1 : found 1
 </code></pre>
 
 <p>Note the <code>isA&lt;Int&gt;</code> assertion (that would have failed) was not evaluated since it was chained after <code>lessThan(1)</code> which failed.

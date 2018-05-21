@@ -483,12 +483,12 @@ expect(subject) {
 <p>If you use a Kotlin property or Java method reference as the lambda passed to <code>map</code>, Strikt will automatically derive the property name and use it as the subject description on the returned assertion. 
 This is useful for generating good quality assertion output with minimal effort.</p>
 <p>For example, if the previous example fails it will format the error message like this:</p>
-<pre><code>▼ Person[name: Ziggy, birthDate: 1972-06-16] 
-  ▼ Ziggy 
-    ✗ is equal to David
-  ▼ 1972-06-16 
-    ▼ 1972
-      ✗ is equal to 1947
+<pre><code>Person[name: Ziggy, birthDate: 1972-06-16] (2 failures) 
+    Expect that &quot;Ziggy&quot; (1 failure)
+        is equal to &quot;David&quot; : found &quot;Ziggy&quot;
+    Expect that 1972-06-16 (1 failure) 
+        Expect that 1972 (1 failure)
+            is equal to 1947 : found 1972
 </code></pre>
 
 <p>Using property references the output is more useful.</p>
@@ -499,12 +499,12 @@ expect(subject) {
 }
 </code></pre>
 
-<pre><code>▼ Person[name: Ziggy, birthDate: 1972-06-16] 
-  ▼ .name Ziggy 
-    ✗ is equal to David
-  ▼ .birthDate 1972-06-16
-    ▼ .year 1972 
-      ✗ is equal to 1947
+<pre><code>Person[name: Ziggy, birthDate: 1972-06-16] (2 failures) 
+    .name &quot;Ziggy&quot; (1 failure)
+        is equal to &quot;David&quot; : found &quot;Ziggy&quot;
+    .birthDate 1972-06-16 (1 failure) 
+        .year 1972 (1 failure)
+            is equal to 1947 : found 1972
 </code></pre>
 
 <h2 id="creating-re-usable-mappings-with-extensions">Creating re-usable mappings with extensions</h2>
