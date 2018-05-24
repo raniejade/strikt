@@ -1,0 +1,149 @@
+= Strikt
+:page-layout: home
+:page-permalink: /
+
+Strikt is an assertion library for Kotlin intended for use with a test runner such as https://junit.org/junit5/[JUnit] or http://spekframework.org/[Spek].
+It's inspired by https://joel-costigliola.github.io/assertj/[AssertJ], https://robstoll.github.io/atrium/[Atrium] and https://github.com/npryce/hamkrest[Hamkrest].
+However, none of those provided exactly what I wanted so I decided to create my own.
+
+Strikt gets you…
+
+== Strong typing
+
+Assertion functions can "narrow" the type of the assertion:
+
+[source,kotlin]
+----
+val subject: Any? = "The Enlightened take things Lightly"
+expect(subject)                // type: Assertion<Any?>
+  .isNotNull()                 // type: Assertion<Any>
+  .isA<String>()               // type: Assertion<String>
+  .matches(Regex("[\\w\\s]+")) // only available on Assertion<CharSequence>
+----
+
+Assertions can "map" to properties and method results in a type safe way:
+
+[source,kotlin]
+----
+val subject = Pantheon.ERIS
+expect(subject)
+  .map(Deity::realm)  // type safe reference to a property narrows assertion
+  .map { toString() } // narrows assertion to return type of method call
+  .isEqualTo("discord and confusion")
+----
+
+== Easy "soft" assertions
+
+[source,kotlin]
+----
+val subject: "The Enlightened take things Lightly"
+expect(subject) {
+  hasLength(5)          // fails
+  matches(Regex("\d+")) // fails
+  startsWith("T")       // still evaluated and passes
+}
+----
+
+== Useful, structured diagnostics
+
+[source]
+----
+Multiple Failures (2 failures)
+	has length 5 : found 35
+	matches the regular expression /\d+/
+----
+
+== Extensibility
+
+Easy custom assertions:
+
+[source,kotlin]
+----
+fun Assertion<LocalDate>.isStTibsDay() =
+  assert("is St. Tib's Day") {
+    when (MonthDay.from(subject)) {
+      MonthDay.of(2, 29) -> pass()
+      else               -> fail()
+    }
+  }
+
+expect(LocalDate.of(2018, 5, 15)).isStTibsDay()
+----
+
+With the same diagnostic quality:
+
+[source]
+----
+Expect that 2018-05-15 (1 failure)
+    is St. Tib's Day 
+----
+
+Easy custom narrowing:
+
+[source,kotlin]
+----
+val Assertion<Deity>.realm: Assertion<String>
+  get() = map(Deity::realm)
+
+val subject = Pantheon.ERIS
+expect(subject).realm.isEqualTo("discord and confusion")
+----
+
+== Simple setup
+
+One dependency. Two imports. Go!
+
+[source,groovy]
+----
+repositories { 
+  jcenter() 
+}
+
+dependencies {
+  testCompile "io.strikt:strikt-core:0.6.0"
+}
+----
+
+[source,kotlin]
+----
+import strikt.api.*
+import strikt.assertions.*
+----
+
+== Simple API, complex capabilities
+
+[source,kotlin]
+----
+val subject = Pantheon.values()
+expect(subject).any {
+  culture.isEqualTo("Grœco-Californian")
+  realm.isEqualTo("discord and confusion")
+  aliases.contains("Discordia")
+}
+----
+
+== Detailed reporting
+
+[source]
+----
+▼ Expect that [Eris, Thor]
+  ✓ at least one element matches:
+    ▼ Expect that Eris
+      ▼ .culture "Grœco-Californian"
+        ✓ is equal to "Grœco-Californian"
+      ▼ .realm "discord and confusion"
+        ✓ is equal to "discord and confusion"
+      ▼ .aliases ["Ἔρις", "Discordia"]
+        ✓ contains the elements ["Discordia"]
+          ▼ Expect that ["Ἔρις", "Discordia"]
+            ✓ contains "Discordia"
+    ▼ Expect that Thor
+      ▼ .culture "Norse"
+        ✗ is equal to "Grœco-Californian"
+      ▼ .realm "thunder"
+        ✗ is equal to "discord and confusion"
+      ▼ .aliases ["Þórr", "Þunor"]
+        ✗ contains the elements ["Discordia"]
+          ▼ Expect that ["Þórr", "Þunor"]
+            ✗ contains "Discordia"
+----
