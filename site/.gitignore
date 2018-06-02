@@ -1,3 +1,4 @@
-_site
-.sass-cache
-.jekyll-metadata
+src/main/jekyll/_site/
+src/main/jekyll/api/
+src/main/jekyll/.sass-cache/
+src/main/jekyll/.jekyll-metadata/
