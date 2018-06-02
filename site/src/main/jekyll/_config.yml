@@ -24,7 +24,7 @@ github_username:  robfletcher
 
 # Build settings
 markdown: kramdown
-theme: hanuman
+theme: jekyll-theme-hydeout
 plugins:
 - jekyll-asciidoc
 

@@ -4,7 +4,8 @@ apply plugin: "com.github.jruby-gradle.base"
 dependencies {
   jrubyExec "rubygems:jekyll:3.8.2"
   jrubyExec "rubygems:jekyll-asciidoc:2.1.0"
-  jrubyExec "rubygems:hanuman:0.4.0"
+  jrubyExec "rubygems:minima:2.5.0"
+  jrubyExec "rubygems:jekyll-theme-hydeout:3.6.0"
 }
 
 def jekyllWorkDir = "${projectDir}/src/main/jekyll"
@@ -36,13 +37,9 @@ task copyApiDocs(type: Copy) {
   outputs.upToDateWhen { false }
   from(dokka)
   into("${jekyllWorkDir}/api/")
-//  filter { line ->
-//    if (line == "---") {
-//      null
-//    } else {
-//      line.find(/title: (.+)/) { l, t -> "title=$t\ntype=page\nstatus=published\n~~~~~~\n\n" } ?: line
-//    }
-//  }
+  filter { line ->
+    line.find(/title: (.+)/) { l, t -> "$l\nlayout: page\nmenu: false" } ?: line
+  }
 }
 
 jekyllServe.dependsOn(copyApiDocs)

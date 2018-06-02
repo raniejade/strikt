@@ -75,7 +75,7 @@ With the same diagnostic quality:
 [source]
 ----
 Expect that 2018-05-15 (1 failure)
-    is St. Tib's Day 
+    is St. Tib's Day
 ----
 
 Easy custom narrowing:
@@ -95,8 +95,8 @@ One dependency. Two imports. Go!
 
 [source,groovy]
 ----
-repositories { 
-  jcenter() 
+repositories {
+  jcenter()
 }
 
 dependencies {
